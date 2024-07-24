@@ -44,6 +44,30 @@ For example: Edit the max damage of a pet, its hat offset relative to its curren
 
 ## Creating the Content Pack
 
+Let's start by creating a new folder inside the `Mods` folder, then create a new json file inside it and name it `manifest.json`.
+```
+📁 Mods/
+   📁 [PEM] YourModName/
+      🗎 manifest.json
+```
+The `manifest.json` should look like this:
+```js
+{
+  "Name": "Write the name of your content pack here",
+  "Author": "Your name",
+  "Version": "1.0.0", 
+  "Description": "Write your description",
+  "UniqueID": "YourName.YourContentPackName",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": [ "Nexus:???" ], //Replace "???" with the id of your mod on NexusMods, otherwise leave as it is.
+  "ContentPackFor": {
+    "UniqueID": "Sunken_Lace.PetsEnhancedCode",
+    "MinimumVersion": "0.2.0"
+  }
+
+}
+```
+
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
 * My [BuyMeACoffee](https://buymeacoffee.com/sunkenlace) page, if you wanna support me.
