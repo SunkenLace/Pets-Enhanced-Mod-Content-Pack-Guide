@@ -6,9 +6,9 @@ A comprehensive guide on how to install and/or create content packs for the Star
 * [Creating the Content Pack](#creating-the-content-pack)
   
 ## Installation
-1. [Install the latest version of SMAPI](https://smapi.io/).
-2. Install the latest version of [Pet's Enhanced Mod](https://www.nexusmods.com/stardewvalley/mods/1915) on [Nexus Mods](https://www.nexusmods.com/stardewvalley).
-3. Unzip any Pet's Enhanced content packs into `Mods` to install them.
+1. [Install the latest version of SMAPI]([https://smapi.io/](https://www.nexusmods.com/stardewvalley/mods/2400)).
+2. Install the latest version of [Pet's Enhanced Mod](https://www.nexusmods.com/stardewvalley/mods/24026) on [Nexus Mods](https://www.nexusmods.com/stardewvalley).
+3. Unzip any Pet's Enhanced Mod content packs into `Mods` to install them.
 4. Run the game using SMAPI.
 
 That's it! Content packs unzipped into `Mods` will be loaded and applied automatically.
