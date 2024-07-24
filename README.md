@@ -44,7 +44,7 @@ For example: Edit the max damage of a pet, its hat offset relative to its curren
 
 ## Creating the Content Pack
 
-Let's start by creating a new folder inside the `Mods` folder, then create a new json file inside it and name it `manifest.json`.
+Let's start by creating a new folder inside the `Mods` folder, then create a new json file named `manifest.json` inside it.
 ```
 📁 Mods/
    📁 [PEM] YourModName/
