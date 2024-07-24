@@ -67,6 +67,20 @@ The `manifest.json` should look like this:
 
 }
 ```
+With this, SMAPI will now recognize your content pack. Of course were not done yet, you still need to write down the logic of your content pack, otherwise it is empty and won't work.
+
+For that, we need to create the `content.json` file, which will contain all our logic for the content pack. It should look like this for now:
+
+```js
+{
+
+  // Here goes the content pack logic...
+  //------------------------------------
+  //          ----------------
+
+
+}
+```
 
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
