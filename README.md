@@ -14,7 +14,7 @@ A comprehensive guide on how to install and/or create content packs for the Star
 That's it! Content packs unzipped into `Mods` will be loaded and applied automatically.
 
 ## Getting Started
-"The following guide is for mod authors only, if you're not a mod author or you don't plan to make a content pack yourself, the instructions above are everything you need to know, otherwise, keep reading."
+"The following guide is for mod authors only, if you're not a mod author or you don't plan to make a content pack yourself, the instructions above are everything you need to know, otherwise keep reading."
 
 Before we start learning how to create a Content pack for Pet's Enhanced Mod, we first need to know how does a finished content pack for the mod look like:
 ```
