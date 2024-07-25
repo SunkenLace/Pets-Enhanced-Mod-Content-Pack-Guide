@@ -4,6 +4,7 @@ A comprehensive guide on how to install and/or create content packs for the Star
 * [Installation](#installation)
 * [Getting Started](#getting-started)
 * [Creating the Content Pack](#creating-the-content-pack)
+* [Implementing Logic](#implementing-logic)
   
 ## Installation
 1. Install the latest version of [SMAPI](https://www.nexusmods.com/stardewvalley/mods/2400).
@@ -81,6 +82,37 @@ For that, we need to create the `content.json` file, which will contain all our 
 
 }
 ```
+## Implementing Logic
+
+When creating a content pack you might want to do one of two things: Edit content from the mod, or add content to the mod.
+
+To help achieve both things, the mod provides two constructors called: `EditContent` and `AddContent`.
+
+Their purpose is to help organize the logic into separate blocks.
+
+```js
+{
+  "AddContent": [
+    {
+
+      // AddContent Action block Nº1
+
+      // Here goes the logic...
+      //-----------------------
+
+    },
+    {
+
+      // AddContent Action block Nº2
+
+      // Here goes the logic...
+      //-----------------------
+
+    }
+  ]
+}
+```
+Each block is an independent Action that provides the mod with instructions that help apply the changes correctly.
 
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
