@@ -127,7 +127,7 @@ Each block is an independent Action that provides the mod with instructions that
 </tr>
 <tr>
 <td><code>AddContent</code></td><td>Include modded pets into the Internal Content Library of the mod.
-<br><br/><br><br/>
+<br><br/>
 <em>*By default, the mod ignores any modded pet whose texture is not present on the Library.
 <br><br/>
 This is because the mod requires a lot of information in order to work correctly.
@@ -174,12 +174,12 @@ Each of them have their own purposes:
 <th>IsRequired</th>
 </tr>
 <tr>
-<td><code>PatchPriority</code></td><td>If another content pack targets the same texture as this one, whichever has the highest <code>PatchPriority</code> will be applied first.</td><td>Yes</td>
+<td><code>PatchPriority</code></td><td>Set this action's priority over its "TargetTexture". <br></br><em>If another content pack targets the same texture as this one, whichever has the highest </em><code>PatchPriority</code><em> will be applied first.</em></td><td>Yes</td>
 </tr>
 <tr>
 <td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
 <br><br/> 
-<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will have the same kind of patch.</em></td><td>Yes</td>
+<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em></td><td>Yes</td>
 </tr>
 </table>
 
