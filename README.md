@@ -174,18 +174,24 @@ Each of them have their own purposes:
 <th>IsRequired</th>
 </tr>
 <tr>
-<td><code>PatchPriority</code></td><td>Set this action's priority over its "TargetTexture". <br></br><em>If another content pack targets the same texture as this one, whichever has the highest </em><code>PatchPriority</code><em> will be applied first.</em></td><td>Yes</td>
+<td><code>PatchPriority</code></td><td>Set this action's priority over its "TargetTexture". <br></br><em>*If another content pack targets the same texture as this one, whichever has the highest </em><code>PatchPriority</code><em> will be applied first.</em></td><td>Yes</td>
 </tr>
 <tr>
 <td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
 <br><br/> 
-<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em><br><br/>See Guides/EditContent/TargetTexture for more info.</td><td>Yes</td>
+<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em>
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.TargetTexture</a> for more info.
+</td><td>Yes</td>
 </tr>
 <tr>
-<td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>This literally replaces the previous texture with a new one.</em><td>No</td>
+<td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>*This literally replaces the previous texture with a new one.</em>
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.FromTexture</a> for more info.
+<td>No</td>
 </tr>
 <tr>
-<td><code>Entries</code></td><td>Contains several other methods that you can use to achieve more specific results.<br></br><em>Such as: Add EdibleItems, replace pet Commands or modify the AttackModel for example.</em><td>No</td>
+<td><code>Entries</code></td><td>Contains several other methods that you can use to achieve more specific results.<br></br><em>*Such as: Add EdibleItems, replace pet Commands or modify the AttackModel for example.</em>
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.Entries</a> for more info.
+<td>No</td>
 </tr>
 </table>
 
