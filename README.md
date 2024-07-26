@@ -5,6 +5,8 @@ A comprehensive guide on how to install and/or create content packs for the Star
 * [Getting Started](#getting-started)
 * [Creating the Content Pack](#creating-the-content-pack)
 * [Implementing Logic](#implementing-logic)
+* * [Edit Content](#edit-content)
+<br><br/>
   
 ## Installation
 1. Install the latest version of [SMAPI](https://www.nexusmods.com/stardewvalley/mods/2400).
@@ -13,6 +15,7 @@ A comprehensive guide on how to install and/or create content packs for the Star
 4. Run the game using SMAPI.
 
 That's it! Content packs unzipped into `Mods` will be loaded and applied automatically.
+<br><br/>
 
 ## Getting Started
 "The following guide is for mod authors only, if you're not a mod author or you don't plan to make a content pack yourself, the instructions above are everything you need to know, otherwise keep reading."
@@ -42,6 +45,7 @@ As you can see, it is pretty similar to how a content pack for Content Patcher l
 What this does is replace the texture of the vanilla cat nº3 with `exampleTexture.png`. You can do this and much more with the help of this guide (via content packs).
 
 For example: Edit the max damage of a pet, its hat offset relative to its current frame, change what commands a pet is able to learn, etc... 
+<br><br/>
 
 ## Creating the Content Pack
 
@@ -70,7 +74,7 @@ The `manifest.json` should look like this:
 ```
 With this, SMAPI will now recognize your content pack. Of course were not done yet, you still need to write down the logic of your content pack, otherwise it is empty and won't work.
 
-For that, we need to create the `content.json` file, which will contain all our logic for the content pack. It should look like this for now:
+For that, we need to create the `content.json` file, which will contain all our logic for the content pack.
 
 ```js
 {
@@ -82,6 +86,9 @@ For that, we need to create the `content.json` file, which will contain all our 
 
 }
 ```
+Which should look like this for now.
+<br><br/>
+
 ## Implementing Logic
 
 When creating a content pack you might want to do one of two things: Edit content from the mod, or add content to the mod.
@@ -92,10 +99,10 @@ Their purpose is to help organize the logic into separate blocks.
 
 ```js
 {
-  "AddContent": [
+  "EditContent": [
     {
 
-      // AddContent Action block Nº1
+      // EditContent Action block Nº1
 
       // Here goes the logic...
       //-----------------------
@@ -103,7 +110,7 @@ Their purpose is to help organize the logic into separate blocks.
     },
     {
 
-      // AddContent Action block Nº2
+      // EditContent Action block Nº2
 
       // Here goes the logic...
       //-----------------------
@@ -113,6 +120,68 @@ Their purpose is to help organize the logic into separate blocks.
 }
 ```
 Each block is an independent Action that provides the mod with instructions that help apply the changes correctly.
+<table>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>AddContent</code></td><td>Include modded pets into the Internal Content Library of the mod.
+<br><br/><br><br/>
+<em>*By default, the mod ignores any modded pet whose texture is not present on the Library.
+<br><br/>
+This is because the mod requires a lot of information in order to work correctly.
+<br>For example: What commands can the pet learn, or what items can it eat.<br/>
+<br>The mod also uses different sprite sheets for the cat & dog, which contains frames that aren't present on vanilla. This causes visual bugs due to missing frames.<br/></em>
+</td>
+</tr>
+<tr>
+<td><code>EditContent</code></td><td>If another content pack targets the same texture as this one, whichever has the highest <code>PatchPriority</code> will be applied first.</td>
+</tr>
+</table>
+<br><br/>
+
+### Edit Content
+
+The basic structure of an EditContent Action block usually looks like this:
+
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "Entries":
+        {
+
+          //More instructions here...
+          //-------------------------
+        
+      }
+    }
+  ]
+}
+```
+As you can see, it is made out of 4 fields: `PatchPriority`, `TargetTexture`, `FromTexture` and `Entries`. And only two of them are required (`PatchPriority` and `TargetTexture`).
+
+Each of them have their own purposes:
+
+<table>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>IsRequired</th>
+</tr>
+<tr>
+<td><code>PatchPriority</code></td><td>If another content pack targets the same texture as this one, whichever has the highest <code>PatchPriority</code> will be applied first.</td><td>Yes</td>
+</tr>
+<tr>
+<td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
+<br><br/> 
+<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will have the same kind of patch.</em></td><td>Yes</td>
+</tr>
+</table>
 
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
