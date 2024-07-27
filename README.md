@@ -6,7 +6,7 @@ A comprehensive guide on how to install and/or create content packs for the Star
 * [Creating the Content Pack](#creating-the-content-pack)
 * [Implementing Logic](#implementing-logic)
 * * [EditContent](#editcontent)
-* * <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/edit/main/README.md#editcontent--entries">EditContent • Entries</a>
+* * [EditContent • Entries](#editcontent--entries)
 <br><br/>
   
 ## Installation
