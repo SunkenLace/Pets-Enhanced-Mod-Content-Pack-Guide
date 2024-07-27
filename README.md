@@ -5,7 +5,8 @@ A comprehensive guide on how to install and/or create content packs for the Star
 * [Getting Started](#getting-started)
 * [Creating the Content Pack](#creating-the-content-pack)
 * [Implementing Logic](#implementing-logic)
-* * [Edit Content](#edit-content)
+* * [EditContent](#editcontent)
+* * <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/edit/main/README.md#editcontent--entries">EditContent • Entries</a>
 <br><br/>
   
 ## Installation
@@ -141,7 +142,7 @@ This is because the mod requires a lot of information in order to work correctly
 </table>
 <br><br/>
 
-### Edit Content
+### EditContent
 
 The basic structure of an EditContent Action block usually looks like this:
 
@@ -194,6 +195,8 @@ Each of them have their own purposes:
 <td>No</td>
 </tr>
 </table>
+
+### EditContent • Entries
 
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
