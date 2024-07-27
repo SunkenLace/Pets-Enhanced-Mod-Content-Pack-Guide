@@ -198,6 +198,74 @@ Each of them have their own purposes:
 
 ### EditContent • Entries
 
+The Entries property contains a series of methods and sub-methods that will help you edit content more easily.
+<br>This is how it usually looks like:<br/>
+
+<table>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+<tr>
+<td><code>EditHatOffsetModel</code></td><td>Change this pet's previous HatOffSet model with the specified one.
+<br>Example:<br/>
+  
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "dog2" ],
+      "Entries": {
+        "EditHatOffsetModel": "dog2"
+      }
+    }
+  ]
+}
+```
+
+<em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If your want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
+Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
+</td><td>String</td>
+</tr>
+<tr>
+<td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary of this pet with the one provided.
+<br>Example:<br/>
+
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "EditHatOffset": {        //AddHatOffset and ReplaceHatOffset look like this too! 
+          "1, 2": [ 4, 4, 2 ],
+          "35, 1, 23": [ 3, 4, 0 ],
+          "24": [ 3.5, -10, 1 ]
+        }
+      }
+    }
+  ]
+}
+```
+
+<em>*A "HatOffset" dictionary contains instructions the mod needs in order for the pet's Hat to be displayed correctly on its texture (on a specific frame).<br><br/> The mod uses coordinates relative to the center of the pet's sprite to position the hat on top of the pet.<br><br/>As such, it needs to know the direction of the hat and the position it should be at a certain frame. <br>For example: At frame 24, the hat should be 3.5px right, 10px higher, and it should be facing East.<br/></em>
+<br><br/>A key in a HatOffset dictionary looks like this:
+```js
+"frame": [ xOffset, yOffset, direction] //Directions: 0(North), 1(East), 2(South), 3(West).
+```
+<em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
+<br><br/> 
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.Entries.EditHatOffset</a> and the other two methods for more info.
+
+</td>
+<td>Dictionary</td>
+</tr>
+</table>
+
+
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
 * My [BuyMeACoffee](https://buymeacoffee.com/sunkenlace) page, if you wanna support me.
