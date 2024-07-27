@@ -201,6 +201,33 @@ Each of them have their own purposes:
 The Entries property contains a series of methods and sub-methods that will help you edit content more easily.
 <br>This is how it usually looks like:<br/>
 
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "dog3" ],
+      "Entries": {
+        "AddEdibleItems": [
+          {
+            "QualifiedItemID": "(O)211", //Pancakes
+            "FriendshipPointsGained": 20
+          }
+        ],
+        "RemoveCommands": [ "Search" ],
+        "AttackModel": {
+          "EditMinDamage": 5,
+          "EditMaxDamage": 30,
+          "EditAttackEffectType": "Swipe",
+          "EditIsViciousType": true
+        }
+      }
+    }
+  ]
+}
+```
+<br><br/> 
+Here's the list of methods:
 <table>
 <tr>
 <th>Field</th>
