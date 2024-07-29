@@ -560,7 +560,7 @@ The basic structure of an AddContent Action block usually looks like this:
   "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Mods", "moddedDogTexture" ], //The in-game path to the the modded pet texture.
+      "TargetTexture": [ "Mods", "moddedDogTexture" ], //The in-game path to the modded pet texture.
       "FromTexture": [ "assets", "exampleTexture.png" ],
       "PetType": "Dog",
       "Entries": {
