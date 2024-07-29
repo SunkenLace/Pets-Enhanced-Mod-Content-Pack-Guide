@@ -6,7 +6,8 @@ A comprehensive guide on how to install and/or create content packs for the Star
 * [Creating the Content Pack](#creating-the-content-pack)
 * [Implementing Logic](#implementing-logic)
 * * [EditContent](#editcontent)
-* * [EditContent • Entries](#editcontent--entries)
+* * * [EditContent • Entries](#editcontent--entries)
+* * * [EditContent • Entries • AttackModel](#editcontent--entries--attackmodel)
 <br><br/>
   
 ## Installation
@@ -181,12 +182,12 @@ Each of them have their own purposes:
 <td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
 <br><br/> 
 <em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.TargetTexture</a> for more info.
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/TargetTexture</a> for more info.
 </td><td>Yes</td>
 </tr>
 <tr>
 <td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>*This literally replaces the previous texture with a new one.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.FromTexture</a> for more info.
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/FromTexture</a> for more info.
 <td>No</td>
 </tr>
 <tr>
@@ -320,7 +321,7 @@ Example:
       "PatchPriority": 1,
       "TargetTexture": [ "Animals", "cat4" ],
       "Entries": {
-        "AddCommands": [ "Search", "Wait" ]      // Remove/ReplaceCommands follow the same structure!
+        "AddCommands": [ "Search", "Wait" ]     // Remove/ReplaceCommands follow the same structure!
         
       }
     }
@@ -347,7 +348,7 @@ Example:
       "PatchPriority": 1,
       "TargetTexture": [ "Animals", "cat4" ],
       "Entries": {
-        "ReplaceEdibleItems": [      // AddEdibleItems also follows the same structure!
+        "ReplaceEdibleItems": [     // AddEdibleItems also follows the same structure!
           {
             "QualifiedItemID": "(O)139", //Salmon
             "FriendshipPointsGained": 20
@@ -363,10 +364,185 @@ Example:
 }
 ```
 <em>*Edible items refer to what items can be gifted to pets regardless of whether the pet likes them or not.</em>
+<br><br/> 
+An element inside an EdibleItem list typically looks like this:
+
+```js
+{
+  "QualifiedItemID": "(O)139", //Look it up at the stardew valley wiki to see more info.
+  "FriendshipPointsGained": 20 //The usual amount of FP gained by petting a pet is 12. 
+}
+```
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EdibleItems</a> for more info.
 </td>
+</tr>
+<tr><td><code>RemoveEdibleItems</code></td><td>Remove a list of EdibleItems already present on this pet's EdibleItemList addressing them by their QualifiedItemID. 
+<br></br>
+Example:
+  
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "RemoveEdibleItems": [ "(O)139", "(O)720" ] //Salmon, shrimp
+      }
+    }
+  ]
+}
+```
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EdibleItems</a> for more info.
+</td></tr>
+<tr>
+<td><code>AttackModel</code></td><td>Contains several other combat related methods that you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Edit Min Damage, edit Crit Chance or remove Enemies the pet is effective against for example.</em>
 </tr>
 </table>
 
+### EditContent • Entries • AttackModel
+
+The AttackModel property contains a series of methods that will help you edit some combat related fields more easily.
+<br>This is how it usually looks like:<br/>
+
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "AttackModel": {
+          "EditMinDamage": 5,
+          "EditMaxDamage": 20,
+          "EditCritChance": 0.40,
+          "AddEnemiesEffectiveAgainst": [
+            {
+              "Name": "Skeleton",
+              "DamageMultiplier": 3
+            },
+            {
+              "Name": "Shadow Guy",
+              "DamageMultiplier": 3
+            }
+          ],
+          "EditAttackEffectType": "Swipe"
+        }
+      }
+    }
+  ]
+}
+```
+<br><br/> 
+Here's the list of methods:
+<table>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>EditMinDamage</code></td><td>Edit the minimum amount of damage this pet can inflict on enemies.<br></br>
+<em>*The final min damage output is calculated using this formula: <br><code>(AttackModel.MinDamage * (AttackModel.DamageScaling * (Player.CombatLevel + 1))) * CombatSkillMasteryDamageModifiers</code></br></em>
+</td>
+</tr>
+<tr>
+<td><code>EditMaxDamage</code></td><td>Edit the maximum amount of damage this pet can inflict on enemies.<br></br>
+<em>*The final max damage output is calculated using this formula: <br><code>(AttackModel.MaxDamage * (AttackModel.DamageScaling * (Player.CombatLevel + 1))) * CombatSkillMasteryDamageModifiers</code></br></em>
+</td>
+</tr>
+<tr>
+<td><code>EditCritChance</code></td><td>Edit the chances of this pet landing a critical hit on enemies.<br></br>
+<em>*The final crit chance output is calculated using this formula: <br><code>(AttackModel.CritChance * CombatSkillMasteryCritChanceModifiers</code></br></em>
+</td>
+</tr>
+<tr>
+<td><code>EditCritMultiplier</code></td><td>Edit the multiplier applied to the pet's damage output when succesfully landing a critical hit (by default: 1.5).<br></br>
+<em>*The final crit multiplier output is calculated using this formula: <br><code>(AttackModel.CritMultiplier * CombatSkillMasteryCritMultiplierModifiers</code></br></em>
+</td>
+</tr>
+<tr>
+<td><code>EditDamageScaling</code></td><td>Edit the how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
+</td>
+</tr>
+<tr>
+<td><code>EditKnockbackModifier</code></td><td>Edit the how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
+</td>
+</tr>
+<tr>
+<td><code>AddEnemiesEffectiveAgainst</code> & <code>ReplaceEnemiesEffectiveAgainst</code></td>
+<td>Add or replace the entire list of Enemies this pet is effective against inside the pet's EnemiesEffectiveAgainstList.
+<br></br>
+Example:
+
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "AttackModel": {
+          "AddEnemiesEffectiveAgainst": [
+            {
+              "Name": "Skeleton",
+              "DamageMultiplier": 3
+            },
+            {
+              "Name": "Shadow Guy",
+              "DamageMultiplier": 3
+            }
+          ]       //Its "replace" variant also follows the same structure!
+        }
+      }
+    }
+  ]
+}
+```
+<em>*EnemiesEffectiveAgainst refers to enemies that receive more damage when being hit by this pet.</em>
+<br><br/> 
+An element inside an EnemiesEffectiveAgainst list typically looks like this:
+
+```js
+{
+  "Name": "Skeleton", //The name of the monster.
+  "DamageMultiplier": 3 //The multiplier applied to the final damage output.
+}
+```
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EnemiesEffectiveAgainst</a> for more info.
+</td>
+</tr>
+<tr><td><code>RemoveEnemiesEffectiveAgainst</code></td><td>Remove a list of Enemies already present on this pet's EnemiesEffectiveAgainstList addressing them by their names. 
+<br></br>
+Example:
+  
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "AttackModel": {
+          "RemoveEnemiesEffectiveAgainst": [ "Grub", "Serpent" ]
+        }
+      }
+    }
+  ]
+}
+```
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EnemiesEffectiveAgainst</a> for more info.
+</td></tr>
+<tr>
+<td><code>EditAttackFrame</code></td><td>Edit what frame inside the pet's sprite sheet corresponds to the frame shown when the pet is attacking, if any.<br></br>
+<em>*Choose a frame on the pet's sprite sheet to display as its attack frame. If you don't want the pet to have an attack frame: You can write null.</em>
+</td>
+</tr>
+<tr>
+<td><code>EditIsViciousType</code></td><td>Edit whether or not this pet is of a vicious kind. Type boolean.<br></br>
+<em>*The 'IsViciousType' var is used by the mod to decide whether or not the pet can break the shell of Rock Crabs & interrupt grub metamorphosis.</em>
+</td>
+</tr>
+</table>
 
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
