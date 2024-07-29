@@ -266,7 +266,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
       "PatchPriority": 1,
       "TargetTexture": [ "Animals", "cat4" ],
       "Entries": {
-        "EditHatOffset": {       // AddHatOffset and ReplaceHatOffset follow the same structure! 
+        "EditHatOffset": {    // AddHatOffset and ReplaceHatOffset follow the same structure! 
           "1, 2": [ 4, 4, 2 ],
           "35, 6, 23": [ 3, 4, 0 ],
           "24": [ 3.5, -10, 1 ]
