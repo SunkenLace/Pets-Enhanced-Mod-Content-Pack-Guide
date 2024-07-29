@@ -191,7 +191,6 @@ Each of them have their own purposes:
 </tr>
 <tr>
 <td><code>Entries</code></td><td>Contains several other methods that you can use to achieve more specific results.<br></br><em>*Such as: Add EdibleItems, replace pet Commands or modify the AttackModel for example.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.Entries</a> for more info.
 <td>No</td>
 </tr>
 </table>
@@ -232,7 +231,6 @@ Here's the list of methods:
 <tr>
 <th>Field</th>
 <th>Description</th>
-<th>Type</th>
 </tr>
 <tr>
 <td><code>EditHatOffsetModel</code></td><td>Change this pet's previous HatOffSet model with the specified one.
@@ -254,7 +252,8 @@ Here's the list of methods:
 
 <em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If your want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
 Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
-</td><td>String</td>
+<br><br/> 
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/HatOffset & HatOffsetModel</a> for more info.
 </tr>
 <tr>
 <td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary of this pet with the one provided.
@@ -267,9 +266,9 @@ Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
       "PatchPriority": 1,
       "TargetTexture": [ "Animals", "cat4" ],
       "Entries": {
-        "EditHatOffset": {        //AddHatOffset and ReplaceHatOffset look like this too! 
+        "EditHatOffset": {       // AddHatOffset and ReplaceHatOffset follow the same structure! 
           "1, 2": [ 4, 4, 2 ],
-          "35, 1, 23": [ 3, 4, 0 ],
+          "35, 6, 23": [ 3, 4, 0 ],
           "24": [ 3.5, -10, 1 ]
         }
       }
@@ -285,10 +284,86 @@ Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
 ```
 <em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EditContent.Entries.EditHatOffset</a> and the other two methods for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/HatOffset & HatOffsetModel</a> for more info.
 
 </td>
-<td>Dictionary</td>
+</tr>
+<tr><td><code>RemoveHatOffsetFrames</code></td><td>Remove a list of frames already present from this pet's HatOffset dictionary. 
+<br></br>
+Example:
+  
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "RemoveHatOffsetFrames": [ 1, 2, 35, 6, 23 ]
+
+      }
+    }
+  ]
+}
+```
+</td></tr>
+<tr>
+<td><code>AddCommands</code>, <code>RemoveCommands</code> & <code>ReplaceCommands</code></td>
+<td>Add, remove or replace the entire list of commands inside the pet's CommandList.
+<br></br>
+Example:
+
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "AddCommands": [ "Search", "Wait" ]      // Remove/ReplaceCommands follow the same structure!
+        
+      }
+    }
+  ]
+}
+```
+<em>*Note that 'commands' it's refering to the tricks the pet can use and learn.</em>
+<br><br/> 
+Valid inputs: Wait, Hunt, Follow, Search.
+<br><br/> 
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/Commands</a> for more info.
+</td>
+</tr>
+<tr>
+<td><code>AddEdibleItems</code> & <code>ReplaceEdibleItems</code></td>
+<td>Add or replace the entire list of edible items inside the pet's EdibleItemList.
+<br></br>
+Example:
+
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 1,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "ReplaceEdibleItems": [      // AddEdibleItems also follows the same structure!
+          {
+            "QualifiedItemID": "(O)139", //Salmon
+            "FriendshipPointsGained": 20
+          },
+          {
+            "QualifiedItemID": "(O)130", //Tuna
+            "FriendshipPointsGained": 20
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+<em>*Edible items refer to what items can be gifted to pets regardless of whether the pet likes them or not.</em>
+</td>
 </tr>
 </table>
 
