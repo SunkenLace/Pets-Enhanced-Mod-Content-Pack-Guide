@@ -185,12 +185,12 @@ Each of them have their own purposes:
 <td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
 <br><br/> 
 <em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#targettexture">Guides/TargetTexture</a> for more info.
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#targettexture">PropertyInfo:TargetTexture</a> for more info.
 </td><td>Yes</td>
 </tr>
 <tr>
 <td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>*This literally replaces the previous texture with a new one.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#fromtexture">Guides/FromTexture</a> for more info.
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#fromtexture">PropertyInfo:FromTexture</a> for more info.
 <td>No</td>
 </tr>
 <tr>
@@ -256,7 +256,7 @@ Here's the list of methods:
 <em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If your want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
 Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">Guides/HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 </tr>
 <tr>
 <td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary of this pet with the one provided.
@@ -288,7 +288,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 ```
 <em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">Guides/HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 
 </td>
 </tr>
@@ -335,7 +335,7 @@ Example:
 <br><br/> 
 Valid inputs: Wait, Hunt, Follow, Search.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#commands">Guides/Commands</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#commands">PropertyInfo:Commands</a> for more info.
 </td>
 </tr>
 <tr>
@@ -376,7 +376,7 @@ An element inside an EdibleItem list typically looks like this:
   "FriendshipPointsGained": 20 //The usual amount of FP gained by petting a pet is 12. 
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">Guides/EdibleItems</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">PropertyInfo:EdibleItems</a> for more info.
 </td>
 </tr>
 <tr><td><code>RemoveEdibleItems</code></td><td>Remove a list of EdibleItems already present on this pet's EdibleItemList addressing them by their QualifiedItemID. 
@@ -396,7 +396,7 @@ Example:
   ]
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">Guides/EdibleItems</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">PropertyInfo:EdibleItems</a> for more info.
 </td></tr>
 <tr>
 <td><code>AttackModel</code></td><td>Contains several other combat related methods that you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Edit Min Damage, edit Crit Chance or remove Enemies the pet is effective against for example.</em>
@@ -510,7 +510,7 @@ An element inside an EnemiesEffectiveAgainst list typically looks like this:
   "DamageMultiplier": 3 //Effectiveness damage multiplier.
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">Guides/EnemiesEffectiveAgainst</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
 </td>
 </tr>
 <tr><td><code>RemoveEnemiesEffectiveAgainst</code></td><td>Remove a list of Enemies already present on this pet's EnemiesEffectiveAgainstList addressing them by their names. 
@@ -532,7 +532,7 @@ Example:
   ]
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">Guides/EnemiesEffectiveAgainst</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
 </td></tr>
 <tr>
 <td><code>EditAttackFrame</code></td><td>Edit what frame inside the pet's sprite sheet corresponds to the frame shown when the pet is attacking, if any.<br></br>
@@ -591,12 +591,12 @@ Each of them have their own purposes:
 <td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
 <br><br/> 
 <em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#targettexture">Guides/TargetTexture</a> for more info.
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#targettexture">PropertyInfo:TargetTexture</a> for more info.
 </td><td>Yes</td>
 </tr>
 <tr>
 <td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>*This literally replaces the previous texture with a new one.</em>
-<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#fromtexture">Guides/FromTexture</a> for more info.
+<br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#fromtexture">PropertyInfo:FromTexture</a> for more info.
 <td>Yes</td>
 </tr>
 <tr>
@@ -677,7 +677,7 @@ Here's the list of methods:
 <em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If you want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
 Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">Guides/HatOffset & HatOffsetModel</a> for more info.</td><td>Yes</td>
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.</td><td>Yes</td>
 </tr>
 <tr>
 <td><code>HatOffset</code></td><td>Configure the HatOffset dictionary for this pet.
@@ -738,7 +738,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 ```
 <em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">Guides/HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 
 </td><td>No</td>
 </tr>
@@ -769,7 +769,7 @@ Example:
 <br><br/> 
 Valid inputs: Wait, Hunt, Follow, Search.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#commands">Guides/Commands</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#commands">PropertyInfo:Commands</a> for more info.
 </td><td>No</td>
 </tr>
 <tr>
@@ -815,7 +815,7 @@ An element inside an EdibleItem list typically looks like this:
   "FriendshipPointsGained": 20 //The amount of FP gained by petting a pet is 12. 
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">Guides/EdibleItems</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">PropertyInfo:EdibleItems</a> for more info.
 </td><td>No</td>
 </tr>
 <tr>
@@ -963,7 +963,7 @@ An element inside an EnemiesEffectiveAgainst list typically looks like this:
   "DamageMultiplier": 3 //Effectiveness damage multiplier.
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">Guides/EnemiesEffectiveAgainst</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
 </td>
 </tr>
 <tr>
