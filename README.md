@@ -489,7 +489,7 @@ Example:
               "Name": "Shadow Guy",
               "DamageMultiplier": 3
             }
-          ]       //Its "replace" variant also follows the same structure!
+          ]   //Its "replace" variant also follows the same structure!
         }
       }
     }
