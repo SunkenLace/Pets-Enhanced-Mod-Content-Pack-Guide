@@ -218,7 +218,6 @@ The Entries property contains a series of methods and sub-methods that will help
         "AttackModel": {
           "EditMinDamage": 5,
           "EditMaxDamage": 30,
-          "EditAttackEffectType": "Swipe",
           "EditIsViciousType": true
         }
       }
@@ -425,8 +424,7 @@ The AttackModel property contains a series of methods that will help you edit so
               "Name": "Shadow Guy",
               "DamageMultiplier": 3
             }
-          ],
-          "EditAttackEffectType": "Swipe"
+          ]
         }
       }
     }
