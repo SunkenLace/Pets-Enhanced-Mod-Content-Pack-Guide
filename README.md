@@ -462,11 +462,11 @@ Here's the list of methods:
 </td>
 </tr>
 <tr>
-<td><code>EditDamageScaling</code></td><td>Edit the how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
+<td><code>EditDamageScaling</code></td><td>Edit how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
 </td>
 </tr>
 <tr>
-<td><code>EditKnockbackModifier</code></td><td>Edit the how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
+<td><code>EditKnockbackModifier</code></td><td>Edit how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
 </td>
 </tr>
 <tr>
@@ -616,24 +616,30 @@ The Entries property contains a series of fields and properties that help set up
 
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "dog3" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
-        "AddEdibleItems": [
-          {
-            "QualifiedItemID": "(O)211", //Pancakes
-            "FriendshipPointsGained": 20
-          }
-        ],
-        "RemoveCommands": [ "Search" ],
-        "AttackModel": {
-          "EditMinDamage": 5,
-          "EditMaxDamage": 30,
-          "EditIsViciousType": true
-        }
+        "HatOffsetModel": "custom",
+        "HatOffset": {
+          "0,2": [ 0, -4, 2 ],
+          "1,3": [ 0, -3, 2 ],
+          "4,6": [ 5, -6, 1 ],
+          "5,7": [ 5, -5, 1 ],
+          "8,10": [ 0, -12, 0 ],
+          "9,11": [ 0, -11, 0 ],
+          "12,14": [ -6.5, -6, 3 ],
+          "13,15": [ -6.5, -5, 3 ],
+          "16": [ 0, -6, 2 ],
+          "17": [ 0, -8, 2 ]
+        },
+        "Commands": [ "Follow", "Hunt", "Search", "Wait" ]
+
       }
+      
     }
   ]
 }
@@ -644,21 +650,25 @@ Here's the list of methods:
 <tr>
 <th>Field</th>
 <th>Description</th>
+<th>IsRequired</th>
 </tr>
 <tr>
-<td><code>EditHatOffsetModel</code></td><td>Change this pet's previous HatOffSet model with the specified one.
+<td><code>HatOffsetModel</code></td><td>Chose the HatOffsetModel for this pet.
 <br>Example:<br/>
   
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "dog2" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
-        "EditHatOffsetModel": "dog2"
+        "HatOffsetModel": "dog4"
       }
     }
+    
   ]
 }
 ```
@@ -669,22 +679,51 @@ Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/HatOffset & HatOffsetModel</a> for more info.
 </tr>
 <tr>
-<td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary of this pet with the one provided.
+<td><code>HatOffset</code></td><td>Configure the HatOffset dictionary for this pet.
 <br>Example:<br/>
 
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
-        "EditHatOffset": {    // AddHatOffset and ReplaceHatOffset follow the same structure! 
-          "1, 2": [ 4, 4, 2 ],
-          "35, 6, 23": [ 3, 4, 0 ],
-          "24": [ 3.5, -10, 1 ]
+        "HatOffsetModel": "custom",
+        "HatOffset": {
+          "0,2": [ 0, -4, 2 ],
+          "1,3": [ 0, -3, 2 ],
+          "4,6": [ 5, -6, 1 ],
+          "5,7": [ 5, -5, 1 ],
+          "8,10": [ 0, -12, 0 ],
+          "9,11": [ 0, -11, 0 ],
+          "12,14": [ -6.5, -6, 3 ],
+          "13,15": [ -6.5, -5, 3 ],
+          "16": [ 0, -6, 2 ],
+          "17": [ 0, -8, 2 ],
+          "18,19,27,36,37,38": [ 0, -9, 2 ],
+          "20": [ 5.5, -7, 1 ],
+          "21": [ 4.5, -8.0, 1 ],
+          "22": [ 3.5, -9.0, 1 ],
+          "23,24,25,30,31,40,41": [ 3.5, -10, 1 ],
+          "26": [ 3.5, -11, 1 ],
+          "28,29": [ 5, 0, 2 ],
+          "32": [ 5.5, -8, 1 ],
+          "33": [ 5.5, -7, 1 ],
+          "34": [ 5.5, -5, 1 ],
+          "44,46": [ 0, -9, 2 ],
+          "45,47": [ 0.0, -8.0, 2.0 ],
+          "48,50": [ 5.5, -9, 1 ],
+          "49,51": [ 5.5, -8, 1 ],
+          "52": [ 0, -15, 0 ],
+          "53": [ 0, -14, 0 ],
+          "35,39,42,43,54,55": [ 0.0, 0.0, 2.0 ]
         }
+
       }
+      
     }
   ]
 }
@@ -693,7 +732,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 <em>*A "HatOffset" dictionary contains instructions the mod needs in order for the pet's Hat to be displayed correctly on its texture (on a specific frame).<br><br/> The mod uses coordinates relative to the center of the pet's sprite to position the hat on top of the pet.<br><br/>As such, it needs to know the direction of the hat and the position it should be at a certain frame. <br>For example: At frame 24, the hat should be 3.5px right, 10px higher, and it should be facing East.<br/></em>
 <br><br/>A key in a HatOffset dictionary looks like this:
 ```js
-"frame": [ xOffset, yOffset, direction] //Directions: 0(North), 1(East), 2(South), 3(West).
+"frame": [ xOffset, yOffset, direction] //Directions: 0(North), 1(East), 2(South), 3(West)
 ```
 <em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
 <br><br/> 
@@ -701,41 +740,25 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 
 </td>
 </tr>
-<tr><td><code>RemoveHatOffsetFrames</code></td><td>Remove a list of frames already present from this pet's HatOffset dictionary. 
-<br></br>
-Example:
-  
-```js
-{
-  "EditContent": [
-    {
-      "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
-      "Entries": {
-        "RemoveHatOffsetFrames": [ 1, 2, 35, 6, 23 ]
-
-      }
-    }
-  ]
-}
-```
-</td></tr>
 <tr>
-<td><code>AddCommands</code>, <code>RemoveCommands</code> & <code>ReplaceCommands</code></td>
-<td>Add, remove or replace the entire list of commands inside the pet's CommandList.
+<td><code>Commands</code></td>
+<td>Configure the CommandList for this pet.
 <br></br>
 Example:
 
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
-        "AddCommands": [ "Search", "Wait" ]
-        // Remove/ReplaceCommands follow the same structure!
+        "HatOffsetModel": "dog4",
+        "Commands": [ "Follow", "Hunt", "Search", "Wait" ]
       }
+      
     }
   ]
 }
@@ -748,19 +771,22 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 </td>
 </tr>
 <tr>
-<td><code>AddEdibleItems</code> & <code>ReplaceEdibleItems</code></td>
-<td>Add or replace the entire list of edible items inside the pet's EdibleItemList.
+<td><code>EdibleItems</code></td>
+<td>Configure the EdibleItemList for this pet.
 <br></br>
 Example:
 
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
-        "ReplaceEdibleItems": [     // AddEdibleItems also follows the same structure!
+        "HatOffsetModel": "dog4",
+        "EdibleItems": [
           {
             "QualifiedItemID": "(O)139", //Salmon
             "FriendshipPointsGained": 20
@@ -770,7 +796,9 @@ Example:
             "FriendshipPointsGained": 20
           }
         ]
+
       }
+      
     }
   ]
 }
@@ -781,54 +809,61 @@ An element inside an EdibleItem list typically looks like this:
 
 ```js
 {
-  "QualifiedItemID": "(O)139", //Look it up at the stardew valley wiki to see more info.
-  "FriendshipPointsGained": 20 //The usual amount of FP gained by petting a pet is 12. 
+  "QualifiedItemID": "(O)139", //You can find more info about it in the stardew wiki.
+  "FriendshipPointsGained": 20 //The amount of FP gained by petting a pet is 12. 
 }
 ```
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EdibleItems</a> for more info.
 </td>
 </tr>
-<tr><td><code>RemoveEdibleItems</code></td><td>Remove a list of EdibleItems already present on this pet's EdibleItemList addressing them by their QualifiedItemID. 
-<br></br>
-Example:
-  
+<tr>
+<td><code>TrickLearningTreat</code></td><td>Define what item should be used in exchange for progressing in the command learning lessons.<br></br>
+
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
-        "RemoveEdibleItems": [ "(O)139", "(O)720" ] //Salmon, shrimp
+        "HatOffsetModel": "dog4",
+        "TrickLearningTreat": "(O)131" // Sardines QualifiedItemID
+
       }
+      
     }
   ]
 }
 ```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EdibleItems</a> for more info.
-</td></tr>
+<em>*Pets require a certain amount of 'treats' in order to progress and learn commands, input the QualifiedItemID of your desired treat to make it a valid exchange treat.</em></td>
+</tr>
 <tr>
-<td><code>AttackModel</code></td><td>Contains several other combat related methods that you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Edit Min Damage, edit Crit Chance or remove Enemies the pet is effective against for example.</em>
+<td><code>AttackModel</code></td><td>Contains several other combat related fields that you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Min Damage, Crit Chance or EnemiesEffectiveAgainst for example.</em>
 </tr>
 </table>
 
 ### AddContent • Entries • AttackModel
 
-The AttackModel property contains a series of methods that will help you edit some combat related fields more easily.
+The AttackModel property contains a series of fields you can use to customize more your pet combat experience.
 <br>This is how it usually looks like:<br/>
 
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
+        "HatOffsetModel": "dog4",
         "AttackModel": {
-          "EditMinDamage": 5,
-          "EditMaxDamage": 20,
-          "EditCritChance": 0.40,
-          "AddEnemiesEffectiveAgainst": [
+          "MinDamage": 5,
+          "MaxDamage": 20,
+          "CritChance": 0.40,
+          "EnemiesEffectiveAgainst": [
             {
               "Name": "Skeleton",
               "DamageMultiplier": 3
@@ -839,7 +874,9 @@ The AttackModel property contains a series of methods that will help you edit so
             }
           ]
         }
+
       }
+      
     }
   ]
 }
@@ -852,48 +889,51 @@ Here's the list of methods:
 <th>Description</th>
 </tr>
 <tr>
-<td><code>EditMinDamage</code></td><td>Edit the minimum amount of damage this pet can inflict on enemies.<br></br>
+<td><code>MinDamage</code></td><td>Change the minimum amount of damage this pet can inflict on enemies.<br></br>
 <em>*The final min damage output is calculated using this formula: <br><code>(AttackModel.MinDamage * (AttackModel.DamageScaling * (Player.CombatLevel + 1))) * CombatSkillMasteryDamageModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>EditMaxDamage</code></td><td>Edit the maximum amount of damage this pet can inflict on enemies.<br></br>
+<td><code>MaxDamage</code></td><td>Change the maximum amount of damage this pet can inflict on enemies.<br></br>
 <em>*The final max damage output is calculated using this formula: <br><code>(AttackModel.MaxDamage * (AttackModel.DamageScaling * (Player.CombatLevel + 1))) * CombatSkillMasteryDamageModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>EditCritChance</code></td><td>Edit the chances of this pet landing a critical hit on enemies.<br></br>
+<td><code>CritChance</code></td><td>Change the chances of this pet landing a critical hit on enemies.<br></br>
 <em>*The final crit chance output is calculated using this formula: <br><code>(AttackModel.CritChance * CombatSkillMasteryCritChanceModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>EditCritMultiplier</code></td><td>Edit the multiplier applied to the pet's damage output when succesfully landing a critical hit (by default: 1.5).<br></br>
+<td><code>CritMultiplier</code></td><td>Change the multiplier applied to the pet's damage output when succesfully landing a critical hit (by default: 1.5).<br></br>
 <em>*The final crit multiplier output is calculated using this formula: <br><code>(AttackModel.CritMultiplier * CombatSkillMasteryCritMultiplierModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>EditDamageScaling</code></td><td>Edit the how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
+<td><code>DamageScaling</code></td><td>Change how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
 </td>
 </tr>
 <tr>
-<td><code>EditKnockbackModifier</code></td><td>Edit the how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
+<td><code>KnockbackModifier</code></td><td>Change how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
 </td>
 </tr>
 <tr>
-<td><code>AddEnemiesEffectiveAgainst</code> & <code>ReplaceEnemiesEffectiveAgainst</code></td>
-<td>Add or replace the entire list of Enemies this pet is effective against inside the pet's EnemiesEffectiveAgainstList.
+<td><code>EnemiesEffectiveAgainst</code></td>
+<td>Configure the list of Enemies this pet is effective against.
 <br></br>
 Example:
 
 ```js
 {
-  "EditContent": [
+  "AddContent": [
     {
       "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
+      "TargetTexture": [ "Mods", "moddedDogTexture" ],
+      "FromTexture": [ "assets", "exampleTexture.png" ],
+      "PetType": "Dog",
       "Entries": {
+        "HatOffsetModel": "dog4",
         "AttackModel": {
-          "AddEnemiesEffectiveAgainst": [
+          "EnemiesEffectiveAgainst": [
             {
               "Name": "Skeleton",
               "DamageMultiplier": 3
@@ -902,9 +942,11 @@ Example:
               "Name": "Shadow Guy",
               "DamageMultiplier": 3
             }
-          ]   //Its "replace" variant also follows the same structure!
+          ]
         }
+
       }
+      
     }
   ]
 }
@@ -922,40 +964,19 @@ An element inside an EnemiesEffectiveAgainst list typically looks like this:
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EnemiesEffectiveAgainst</a> for more info.
 </td>
 </tr>
-<tr><td><code>RemoveEnemiesEffectiveAgainst</code></td><td>Remove a list of Enemies already present on this pet's EnemiesEffectiveAgainstList addressing them by their names. 
-<br></br>
-Example:
-  
-```js
-{
-  "EditContent": [
-    {
-      "PatchPriority": 1,
-      "TargetTexture": [ "Animals", "cat4" ],
-      "Entries": {
-        "AttackModel": {
-          "RemoveEnemiesEffectiveAgainst": [ "Grub", "Serpent" ]
-        }
-      }
-    }
-  ]
-}
-```
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EnemiesEffectiveAgainst</a> for more info.
-</td></tr>
 <tr>
-<td><code>EditAttackFrame</code></td><td>Edit what frame inside the pet's sprite sheet corresponds to the frame shown when the pet is attacking, if any.<br></br>
+<td><code>AttackFrame</code></td><td>Change what frame inside the pet's sprite sheet corresponds to the frame shown when the pet is attacking, if any.<br></br>
 <em>*Choose a frame on the pet's sprite sheet to display as its attack frame. If you don't want the pet to have an attack frame: You can write null.</em>
 </td>
 </tr>
 <tr>
-<td><code>EditIsViciousType</code></td><td>Edit whether or not this pet is of a vicious kind. Type boolean.<br></br>
+<td><code>IsViciousType</code></td><td>Change whether or not this pet is of a vicious kind. Type boolean.<br></br>
 <em>*The 'IsViciousType' var is used by the mod to decide whether or not the pet can break the shell of Rock Crabs & interrupt grub metamorphosis.</em>
 </td>
 </tr>
 </table>
 
-And that's pretty much everything about EditContent. Next is AddContent.
+And that's pretty much everything about Content Packs for Pet's Enhanced Mod, thanks for reading!
 
 ## See also
 * Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
