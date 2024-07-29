@@ -320,8 +320,8 @@ Example:
       "PatchPriority": 1,
       "TargetTexture": [ "Animals", "cat4" ],
       "Entries": {
-        "AddCommands": [ "Search", "Wait" ]   // Remove/ReplaceCommands follow the same structure!
-        
+        "AddCommands": [ "Search", "Wait" ]
+        // Remove/ReplaceCommands follow the same structure!
       }
     }
   ]
