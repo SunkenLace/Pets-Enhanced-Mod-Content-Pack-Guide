@@ -283,7 +283,8 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 <em>*A "HatOffset" dictionary contains instructions the mod needs in order for the pet's Hat to be displayed correctly on its texture (on a specific frame).<br><br/> The mod uses coordinates relative to the center of the pet's sprite to position the hat on top of the pet.<br><br/>As such, it needs to know the direction of the hat and the position it should be at a certain frame. <br>For example: At frame 24, the hat should be 3.5px right, 10px higher, and it should be facing East.<br/></em>
 <br><br/>A key in a HatOffset dictionary looks like this:
 ```js
-"frame": [ xOffset, yOffset, direction] //Directions: 0(North), 1(East), 2(South), 3(West).
+//Directions: 0(North), 1(East), 2(South), 3(West).
+"frame": [ xOffset, yOffset, direction]
 ```
 <em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
 <br><br/> 
@@ -732,7 +733,8 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 <em>*A "HatOffset" dictionary contains instructions the mod needs in order for the pet's Hat to be displayed correctly on its texture (on a specific frame).<br><br/> The mod uses coordinates relative to the center of the pet's sprite to position the hat on top of the pet.<br><br/>As such, it needs to know the direction of the hat and the position it should be at a certain frame. <br>For example: At frame 24, the hat should be 3.5px right, 10px higher, and it should be facing East.<br/></em>
 <br><br/>A key in a HatOffset dictionary looks like this:
 ```js
-"frame": [ xOffset, yOffset, direction] //Directions: 0(North), 1(East), 2(South), 3(West)
+//Directions: 0(North), 1(East), 2(South), 3(West)
+"frame": [ xOffset, yOffset, direction]
 ```
 <em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
 <br><br/> 
