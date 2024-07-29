@@ -650,7 +650,7 @@ Here's the list of methods:
 <tr>
 <th>Field</th>
 <th>Description</th>
-<th>IsRequired</th>
+<th>Required</th>
 </tr>
 <tr>
 <td><code>HatOffsetModel</code></td><td>Chose the HatOffsetModel for this pet.
