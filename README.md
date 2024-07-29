@@ -673,10 +673,10 @@ Here's the list of methods:
 }
 ```
 
-<em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If your want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
+<em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If you want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
 Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/HatOffset & HatOffsetModel</a> for more info.</td><td>Yes</td>
 </tr>
 <tr>
 <td><code>HatOffset</code></td><td>Configure the HatOffset dictionary for this pet.
@@ -738,7 +738,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/HatOffset & HatOffsetModel</a> for more info.
 
-</td>
+</td><td>No</td>
 </tr>
 <tr>
 <td><code>Commands</code></td>
@@ -763,12 +763,12 @@ Example:
   ]
 }
 ```
-<em>*Note that 'commands' it's refering to the tricks the pet can use and learn.</em>
+<em>*Note that 'commands' it's refering to the tricks this pet can use and learn.</em>
 <br><br/> 
 Valid inputs: Wait, Hunt, Follow, Search.
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/Commands</a> for more info.
-</td>
+</td><td>No</td>
 </tr>
 <tr>
 <td><code>EdibleItems</code></td>
@@ -814,7 +814,7 @@ An element inside an EdibleItem list typically looks like this:
 }
 ```
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/Guides/EditContent.md">Guides/EdibleItems</a> for more info.
-</td>
+</td><td>No</td>
 </tr>
 <tr>
 <td><code>TrickLearningTreat</code></td><td>Define what item should be used in exchange for progressing in the command learning lessons.<br></br>
@@ -837,10 +837,10 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
   ]
 }
 ```
-<em>*Pets require a certain amount of 'treats' in order to progress and learn commands, input the QualifiedItemID of your desired treat to make it a valid exchange treat.</em></td>
+<em>*Pets require a certain amount of 'treats' in order to progress and learn commands, input the QualifiedItemID of your desired treat to make it a valid exchange treat.</em></td><td>No</td>
 </tr>
 <tr>
-<td><code>AttackModel</code></td><td>Contains several other combat related fields that you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Min Damage, Crit Chance or EnemiesEffectiveAgainst for example.</em>
+<td><code>AttackModel</code></td><td>Contains several other combat related fields you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Min Damage, Crit Chance or EnemiesEffectiveAgainst for example.</em><td>No</td>
 </tr>
 </table>
 
