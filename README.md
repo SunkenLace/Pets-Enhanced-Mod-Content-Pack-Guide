@@ -55,7 +55,7 @@ Content packs allow you to achieve various modifications, like editing pet damag
 ## Creating the Content Pack
 
   1. Inside the Mods folder, create a new folder for your content pack.
-  2. Within this folder, create a new JSON file named manifest.json.
+  2. Within this folder, create a new JSON file named `manifest.json`.
      
 ```
 📁 Mods/
@@ -198,7 +198,7 @@ This block consists of four fields: `PatchPriority`, `TargetTexture`, `FromTextu
 
 ### EditContent • Entries
 
-The Entries property contains a series of methods and sub-methods that will help you edit content more easily.
+The Entries property offers a collection of methods and sub-methods to edit the content more easily.
 <br>This is how it usually looks like:<br/>
 
 ```js
@@ -233,7 +233,7 @@ Here's the list of methods:
 <th>Description</th>
 </tr>
 <tr>
-<td><code>EditHatOffsetModel</code></td><td>Change this pet's previous HatOffSet model with the specified one.
+<td><code>EditHatOffsetModel</code></td><td>Change this pet's previous <code>HatOffSetModel</code> with the specified one.
 <br>Example:<br/>
   
 ```js
@@ -250,13 +250,13 @@ Here's the list of methods:
 }
 ```
 
-<em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If your want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
-Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
+<em>*"HatOffsetModel" refers to pre-defined HatOffset dictionaries that save you from writing them yourself.<br><br/>Use `custom` to write the HatOffset dictionary yourself.</em><br><br/> 
+Valid inputs: `dog`, `dog1`, `dog2`, `dog3`, `dog4`, `dog5`, `cat`, `custom`.
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 </tr>
 <tr>
-<td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary of this pet with the one provided.
+<td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary for this pet.
 <br>Example:<br/>
 
 ```js
@@ -277,19 +277,19 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 }
 ```
 
-<em>*A "HatOffset" dictionary contains instructions the mod needs in order for the pet's Hat to be displayed correctly on its texture (on a specific frame).<br><br/> The mod uses coordinates relative to the center of the pet's sprite to position the hat on top of the pet.<br><br/>As such, it needs to know the direction of the hat and the position it should be at a certain frame. <br>For example: At frame 24, the hat should be 3.5px right, 10px higher, and it should be facing East.<br/></em>
+<em>*A "HatOffset" dictionary provides instructions for the mod to display the pet's hat correctly on its texture (frame specific).<br><br/> The mod uses relative coordinates to the pet's sprite center to position the hat.<br><br/>Because of that, it needs to know the hat's direction and position at certain frames.  <br>For example: At frame 24, the hat should be 3.5px to the right, 10px higher, and facing east.<br/></em>
 <br><br/>A key in a HatOffset dictionary looks like this:
 ```js
 //Directions: 0(North), 1(East), 2(South), 3(West).
 "frame": [ xOffset, yOffset, direction]
 ```
-<em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
+<em><b>Note:</b> The "y" axis is inverted. "-10" is read as "Ten pixels up" in-game.</em>
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 
 </td>
 </tr>
-<tr><td><code>RemoveHatOffsetFrames</code></td><td>Remove a list of frames already present from this pet's HatOffset dictionary. 
+<tr><td><code>RemoveHatOffsetFrames</code></td><td>Removes a list of existing frames from this pet's <code>HatOffset</code> dictionary.
 <br></br>
 Example:
   
@@ -310,7 +310,7 @@ Example:
 </td></tr>
 <tr>
 <td><code>AddCommands</code>, <code>RemoveCommands</code> & <code>ReplaceCommands</code></td>
-<td>Add, remove or replace the entire list of commands inside the pet's CommandList.
+<td>Add, remove, or replace the entire list of commands within the pet's CommandList.
 <br></br>
 Example:
 
@@ -328,16 +328,16 @@ Example:
   ]
 }
 ```
-<em>*Note that 'commands' it's refering to the tricks the pet can use and learn.</em>
+<em>*"Commands" refer to the tricks a pet can learn and use.</em>
 <br><br/> 
-Valid inputs: Wait, Hunt, Follow, Search.
+Valid inputs: `Wait`, `Hunt`, `Follow`, `Search`.
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#commands">PropertyInfo:Commands</a> for more info.
 </td>
 </tr>
 <tr>
 <td><code>AddEdibleItems</code> & <code>ReplaceEdibleItems</code></td>
-<td>Add or replace the entire list of edible items inside the pet's EdibleItemList.
+<td>Add or replace the entire list of edible items within the pet's <code>EdibleItemList</code>. 
 <br></br>
 Example:
 
@@ -363,9 +363,9 @@ Example:
   ]
 }
 ```
-<em>*Edible items refer to what items can be gifted to pets regardless of whether the pet likes them or not.</em>
+<em>*"Edible items" refer to any item that can be gifted to a pet, regardless of whether the pet likes it.</em>
 <br><br/> 
-An element inside an EdibleItem list typically looks like this:
+An element inside an `EdibleItem` list typically looks like this:
 
 ```js
 {
@@ -376,7 +376,7 @@ An element inside an EdibleItem list typically looks like this:
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">PropertyInfo:EdibleItems</a> for more info.
 </td>
 </tr>
-<tr><td><code>RemoveEdibleItems</code></td><td>Remove a list of EdibleItems already present on this pet's EdibleItemList addressing them by their QualifiedItemID. 
+<tr><td><code>RemoveEdibleItems</code></td><td>Remove a list of existing edible items from the pet's <code>EdibleItemList</code> by specifying their QualifiedItemID.
 <br></br>
 Example:
   
@@ -396,14 +396,14 @@ Example:
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">PropertyInfo:EdibleItems</a> for more info.
 </td></tr>
 <tr>
-<td><code>AttackModel</code></td><td>Contains several other combat related methods that you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Edit Min Damage, edit Crit Chance or remove Enemies the pet is effective against for example.</em>
+<td><code>AttackModel</code></td><td>This sub-entry offers various methods for customizing pet combat behavior.<br></br><em>*Examples include editing minimum damage, critical hit chance, or removing enemies the pet is effective against.</em>
 </tr>
 </table>
 
 ### EditContent • Entries • AttackModel
 
-The AttackModel property contains a series of methods that will help you edit some combat related fields more easily.
-<br>This is how it usually looks like:<br/>
+The `AttackModel` property provides methods for modifying various combat-related aspects of your pet.
+<br>Here's an example:<br/>
 
 ```js
 {
@@ -433,7 +433,7 @@ The AttackModel property contains a series of methods that will help you edit so
 }
 ```
 <br><br/> 
-Here's the list of methods:
+List of methods:
 <table>
 <tr>
 <th>Field</th>
@@ -450,26 +450,26 @@ Here's the list of methods:
 </td>
 </tr>
 <tr>
-<td><code>EditCritChance</code></td><td>Edit the chances of this pet landing a critical hit on enemies.<br></br>
+<td><code>EditCritChance</code></td><td>Edit the chance of this pet landing a critical hit on enemies. <br></br>
 <em>*The final crit chance output is calculated using this formula: <br><code>(AttackModel.CritChance * CombatSkillMasteryCritChanceModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>EditCritMultiplier</code></td><td>Edit the multiplier applied to the pet's damage output when succesfully landing a critical hit (by default: 1.5).<br></br>
+<td><code>EditCritMultiplier</code></td><td>Edit the multiplier applied to the pet's damage when it lands a critical hit (default: 1.5). <br></br>
 <em>*The final crit multiplier output is calculated using this formula: <br><code>(AttackModel.CritMultiplier * CombatSkillMasteryCritMultiplierModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>EditDamageScaling</code></td><td>Edit how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
+<td><code>EditDamageScaling</code></td><td>Edit how much the pet's damage scales with the player's combat level (default: 0.62).<br></br>
 </td>
 </tr>
 <tr>
-<td><code>EditKnockbackModifier</code></td><td>Edit how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
+<td><code>EditKnockbackModifier</code></td><td>Edit the amount of knockback applied to enemies after being hit by the pet (default: 1.5 for dogs, 1.25 for cats).<br></br>
 </td>
 </tr>
 <tr>
 <td><code>AddEnemiesEffectiveAgainst</code> & <code>ReplaceEnemiesEffectiveAgainst</code></td>
-<td>Add or replace the entire list of Enemies this pet is effective against inside the pet's EnemiesEffectiveAgainstList.
+<td>Add or replace the entire list of enemies this pet is effective against within its <code>EnemiesEffectiveAgainstList</code>. 
 <br></br>
 Example:
 
@@ -497,9 +497,9 @@ Example:
   ]
 }
 ```
-<em>*EnemiesEffectiveAgainst refers to enemies that receive more damage when being hit by this pet.</em>
+<em>*"EnemiesEffectiveAgainst" refers to enemies that receive more damage against this pet.</em>
 <br><br/> 
-An element inside an EnemiesEffectiveAgainst list typically looks like this:
+An element inside an <code>EnemiesEffectiveAgainst</code> list typically looks like this:
 
 ```js
 {
@@ -510,7 +510,7 @@ An element inside an EnemiesEffectiveAgainst list typically looks like this:
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
 </td>
 </tr>
-<tr><td><code>RemoveEnemiesEffectiveAgainst</code></td><td>Remove a list of Enemies already present on this pet's EnemiesEffectiveAgainstList addressing them by their names. 
+<tr><td><code>RemoveEnemiesEffectiveAgainst</code></td><td>Remove a list of enemies already present in this pet's <code>EnemiesEffectiveAgainstList</code> by specifying their names.
 <br></br>
 Example:
   
@@ -532,20 +532,19 @@ Example:
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
 </td></tr>
 <tr>
-<td><code>EditAttackFrame</code></td><td>Edit what frame inside the pet's sprite sheet corresponds to the frame shown when the pet is attacking, if any.<br></br>
-<em>*Choose a frame on the pet's sprite sheet to display as its attack frame. If you don't want the pet to have an attack frame: You can write null.</em>
+<td><code>EditAttackFrame</code></td><td>Specifies the frame from the pet's sprite sheet to be displayed during an attack.<br></br>
+<em>*If you want the pet to have no attack animation, set this to null.</em>
 </td>
 </tr>
 <tr>
-<td><code>EditIsViciousType</code></td><td>Edit whether or not this pet is of a vicious kind. Type boolean.<br></br>
-<em>*The 'IsViciousType' var is used by the mod to decide whether or not the pet can break the shell of Rock Crabs & interrupt grub metamorphosis.</em>
+<td><code>EditIsViciousType</code></td><td>Determines whether the pet is considered "vicious." Type boolean.<br></br>
+<em>*This property influences the pet's ability to break Rock Crab shells and interrupt Grub metamorphosis.</em>
 </td>
 </tr>
 </table>
-
-And that's pretty much everything about EditContent. Next is AddContent.
-
 <br></br>
+This concludes the explanation of the <code>EditContent</code> section. Next, we'll delve into the <code>AddContent</code> functionality.
+
 <br></br>
 
 ### AddContent
