@@ -145,7 +145,7 @@ Additionally, the mod uses different sprite sheets for cats and dogs, containing
 </table>
 <br><br/>
 
-### EditContent
+## EditContent
 
 The basic structure of an `EditContent` action block typically looks like this:
 
@@ -198,7 +198,7 @@ This block consists of four fields: `PatchPriority`, `TargetTexture`, `FromTextu
 
 ### EditContent • Entries
 
-The Entries property offers a collection of methods and sub-methods to edit the content more easily.
+The <code>Entries</code> property offers a collection of methods and sub-methods to edit the content more easily.
 <br>This is how it usually looks like:<br/>
 
 ```js
@@ -464,7 +464,7 @@ List of methods:
 </td>
 </tr>
 <tr>
-<td><code>EditKnockbackModifier</code></td><td>Edit the amount of knockback applied to enemies after being hit by the pet (default: 1.5 for dogs, 1.25 for cats).<br></br>
+<td><code>EditKnockbackModifier</code></td><td>Edit the amount of knockback applied to enemies after being hit by this pet (default: 1.5 for dogs, 1.25 for cats).<br></br>
 </td>
 </tr>
 <tr>
@@ -532,12 +532,12 @@ Example:
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
 </td></tr>
 <tr>
-<td><code>EditAttackFrame</code></td><td>Specifies the frame from the pet's sprite sheet to be displayed during an attack.<br></br>
+<td><code>EditAttackFrame</code></td><td>Specify the frame from the pet's sprite sheet to be displayed during an attack.<br></br>
 <em>*If you want the pet to have no attack animation, set this to null.</em>
 </td>
 </tr>
 <tr>
-<td><code>EditIsViciousType</code></td><td>Determines whether the pet is considered "vicious." Type boolean.<br></br>
+<td><code>EditIsViciousType</code></td><td>Determine whether the pet is considered "vicious." Type boolean.<br></br>
 <em>*This property influences the pet's ability to break Rock Crab shells and interrupt Grub metamorphosis.</em>
 </td>
 </tr>
@@ -547,9 +547,9 @@ This concludes the explanation of the <code>EditContent</code> section. Next, we
 
 <br></br>
 
-### AddContent
+## AddContent
 
-The basic structure of an AddContent Action block usually looks like this:
+The basic structure of an `AddContent` action block typically looks like this:
 
 ```js
 {
@@ -570,9 +570,7 @@ The basic structure of an AddContent Action block usually looks like this:
   ]
 }
 ```
-As you can see, it is made out of 5 fields: `PatchPriority`, `TargetTexture`, `FromTexture`, `PetType` and `Entries`.
-
-Each of them have their own purposes:
+This block consists of five fields: `PatchPriority`, `TargetTexture`, `FromTexture`, `PetType` and `Entries`.
 
 <table>
 <tr>
@@ -581,35 +579,34 @@ Each of them have their own purposes:
 <th>IsRequired</th>
 </tr>
 <tr>
-<td><code>PatchPriority</code></td><td>Set this action's priority over its "TargetTexture". <br></br><em>*If another content pack targets the same texture as this one, whichever has the highest </em><code>PatchPriority</code><em> will be applied first.</em></td><td>Yes</td>
+<td><code>PatchPriority</code></td><td>Set this action's priority over its <code>TargetTexture</code>. <br></br><em>*If another content pack targets the same texture, the one with the highest <code>PatchPriority</code> is applied first.</em></td><td>Yes</td>
 </tr>
 <tr>
-<td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
+<td><code>TargetTexture</code></td><td>The texture to be affected by the changes. 
 <br><br/> 
-<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em>
+<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched similarly.</em>
 <br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#targettexture">PropertyInfo:TargetTexture</a> for more info.
 </td><td>Yes</td>
 </tr>
 <tr>
-<td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>*This literally replaces the previous texture with a new one.</em>
+<td><code>FromTexture</code></td><td>The path to the new texture that replaces the <code>TargetTexture</code>(visually).<br><br/><em>*This literally replaces the previous texture with a new one.</em>
 <br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#fromtexture">PropertyInfo:FromTexture</a> for more info.
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>PetType</code></td><td>Defines the type of pet, be it "Cat" or "Dog".<br></br><em>*This tells the mod what kind of sprite sheet this pet uses( a cat one or a dog one), what kind of attack effect type it uses, whether it should enter a Doghouse or a CatTree, what animations it uses, etc.</em>
-<br></br>Valid Inputs: Cat, Dog.
+<td><code>PetType</code></td><td>Specifies the type of pet, either <code>"Cat"</code> or <code>"Dog"</code>.<br></br><em>*This determines the sprite sheet model, attack effect type, housing (Doghouse or CatTree), animations, and other pet-specific behaviors.</em></td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>Entries</code></td><td>Contains several fields and properties that help configure this pet correctly.</em></td>
+<td><code>Entries</code></td><td>Contains various fields and properties to configure the pet's specific attributes and behaviors.</em></td>
 <td>Yes</td>
 </tr>
 </table>
 
 ### AddContent • Entries
 
-The Entries property contains a series of fields and properties that help set up the modded pet correctly.
-<br>This is how it usually looks like:<br/>
+The `Entries` property lets you configure various aspects of your modded pet's behavior and appearance.
+<br>Here's an example:<br/>
 
 ```js
 {
@@ -642,7 +639,7 @@ The Entries property contains a series of fields and properties that help set up
 }
 ```
 <br><br/> 
-Here's the list of methods:
+List of methods:
 <table>
 <tr>
 <th>Field</th>
@@ -650,7 +647,7 @@ Here's the list of methods:
 <th>Required</th>
 </tr>
 <tr>
-<td><code>HatOffsetModel</code></td><td>Chose the HatOffsetModel for this pet.
+<td><code>HatOffsetModel</code></td><td>Choose the <code>HatOffsetModel</code> for this pet.
 <br>Example:<br/>
   
 ```js
@@ -670,13 +667,13 @@ Here's the list of methods:
 }
 ```
 
-<em>*A "HatOffsetModel" is a pre-made HatOffset dictionary you can use to avoid writing a new one yourself.<br>If you want to write the HatOffset dictionary yourself, use "custom".<br/></em><br><br/> 
-Valid inputs: dog, dog1, dog2, dog3, dog4, dog5, cat, custom.
+<em>*"HatOffsetModel" refers to pre-defined HatOffset dictionaries that save you from writing them yourself.<br><br/>Use `custom` to write the HatOffset dictionary yourself.</em><br><br/> 
+Valid inputs: `dog`, `dog1`, `dog2`, `dog3`, `dog4`, `dog5`, `cat`, `custom`.
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.</td><td>Yes</td>
 </tr>
 <tr>
-<td><code>HatOffset</code></td><td>Configure the HatOffset dictionary for this pet.
+<td><code>HatOffset</code></td><td>Define the <code>HatOffset</code> dictionary for this pet.
 <br>Example:<br/>
 
 ```js
@@ -726,13 +723,13 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 }
 ```
 
-<em>*A "HatOffset" dictionary contains instructions the mod needs in order for the pet's Hat to be displayed correctly on its texture (on a specific frame).<br><br/> The mod uses coordinates relative to the center of the pet's sprite to position the hat on top of the pet.<br><br/>As such, it needs to know the direction of the hat and the position it should be at a certain frame. <br>For example: At frame 24, the hat should be 3.5px right, 10px higher, and it should be facing East.<br/></em>
+<em>*A "HatOffset" dictionary provides instructions for the mod to display the pet's hat correctly on its texture (frame specific).<br><br/> The mod uses relative coordinates to the pet's sprite center to position the hat.<br><br/>Because of that, it needs to know the hat's direction and position at certain frames.  <br>For example: At frame 24, the hat should be 3.5px to the right, 10px higher, and facing east.<br/></em>
 <br><br/>A key in a HatOffset dictionary looks like this:
 ```js
-//Directions: 0(North), 1(East), 2(South), 3(West)
+//Directions: 0(North), 1(East), 2(South), 3(West).
 "frame": [ xOffset, yOffset, direction]
 ```
-<em>**Note that the "y" axis is inverted, which means that "-10" is read as: "Ten pixels up" instead.</em>
+<em><b>Note:</b> The "y" axis is inverted. "-10" is read as "Ten pixels up" in-game.</em>
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 
@@ -740,7 +737,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 </tr>
 <tr>
 <td><code>Commands</code></td>
-<td>Configure the CommandList for this pet.
+<td>Define the <code>Command</code> list for this pet.
 <br></br>
 Example:
 
@@ -761,16 +758,16 @@ Example:
   ]
 }
 ```
-<em>*Note that 'commands' it's refering to the tricks this pet can use and learn.</em>
+<em>*"Commands" refer to the tricks a pet can learn and use.</em>
 <br><br/> 
-Valid inputs: Wait, Hunt, Follow, Search.
+Valid inputs: `Wait`, `Hunt`, `Follow`, `Search`.
 <br><br/> 
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#commands">PropertyInfo:Commands</a> for more info.
 </td><td>No</td>
 </tr>
 <tr>
 <td><code>EdibleItems</code></td>
-<td>Configure the EdibleItemList for this pet.
+<td>Define the <code>EdibleItem</code> list for this pet.
 <br></br>
 Example:
 
@@ -801,21 +798,21 @@ Example:
   ]
 }
 ```
-<em>*Edible items refer to what items can be gifted to pets regardless of whether the pet likes them or not.</em>
+<em>*"Edible items" refer to any item that can be gifted to a pet, regardless of whether the pet likes it.</em>
 <br><br/> 
-An element inside an EdibleItem list typically looks like this:
+An element inside an `EdibleItem` list typically looks like this:
 
 ```js
 {
-  "QualifiedItemID": "(O)139", //You can find more info about it in the stardew wiki.
-  "FriendshipPointsGained": 20 //The amount of FP gained by petting a pet is 12. 
+  "QualifiedItemID": "(O)139", //Look it up at the stardew valley wiki to see more info.
+  "FriendshipPointsGained": 20 //The usual amount of FP gained by petting a pet is 12. 
 }
 ```
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#edibleitems">PropertyInfo:EdibleItems</a> for more info.
 </td><td>No</td>
 </tr>
 <tr>
-<td><code>TrickLearningTreat</code></td><td>Define what item should be used in exchange for progressing in the command learning lessons.<br></br>
+<td><code>TrickLearningTreat</code></td><td>Specify the item required to progress in teaching your pet new commands.<br></br>
 
 ```js
 {
@@ -835,17 +832,17 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
   ]
 }
 ```
-<em>*Pets require a certain amount of 'treats' in order to progress and learn commands, input the QualifiedItemID of your desired treat to make it a valid exchange treat.</em></td><td>No</td>
+<em>*Use the item's <code>QualifiedItemID</code> to define the desired item.</em></td><td>No</td>
 </tr>
 <tr>
-<td><code>AttackModel</code></td><td>Contains several other combat related fields you can use to customize a litle bit more your combat experience.<br></br><em>*Such as: Min Damage, Crit Chance or EnemiesEffectiveAgainst for example.</em><td>No</td>
+<td><code>AttackModel</code></td><td>This sub-entry offers various methods for customizing pet combat behavior.<br></br><em>*Examples include editing minimum damage, critical hit chance, or adding enemies the pet is effective against.</em></td><td>No</td>
 </tr>
 </table>
 
 ### AddContent • Entries • AttackModel
 
-The AttackModel property contains a series of fields you can use to customize more your pet combat experience.
-<br>This is how it usually looks like:<br/>
+The `AttackModel` property provides methods for modifying various combat-related aspects of your pet.
+<br>Here's an example:<br/>
 
 ```js
 {
@@ -880,43 +877,43 @@ The AttackModel property contains a series of fields you can use to customize mo
 }
 ```
 <br><br/> 
-Here's the list of methods:
+List of methods:
 <table>
 <tr>
 <th>Field</th>
 <th>Description</th>
 </tr>
 <tr>
-<td><code>MinDamage</code></td><td>Change the minimum amount of damage this pet can inflict on enemies.<br></br>
+<td><code>MinDamage</code></td><td>Determine the minimum amount of damage this pet can inflict on enemies.<br></br>
 <em>*The final min damage output is calculated using this formula: <br><code>(AttackModel.MinDamage * (AttackModel.DamageScaling * (Player.CombatLevel + 1))) * CombatSkillMasteryDamageModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>MaxDamage</code></td><td>Change the maximum amount of damage this pet can inflict on enemies.<br></br>
+<td><code>MaxDamage</code></td><td>Determine the maximum amount of damage this pet can inflict on enemies.<br></br>
 <em>*The final max damage output is calculated using this formula: <br><code>(AttackModel.MaxDamage * (AttackModel.DamageScaling * (Player.CombatLevel + 1))) * CombatSkillMasteryDamageModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>CritChance</code></td><td>Change the chances of this pet landing a critical hit on enemies.<br></br>
+<td><code>CritChance</code></td><td>Determine the chance of this pet landing a critical hit on enemies. <br></br>
 <em>*The final crit chance output is calculated using this formula: <br><code>(AttackModel.CritChance * CombatSkillMasteryCritChanceModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>CritMultiplier</code></td><td>Change the multiplier applied to the pet's damage output when succesfully landing a critical hit (by default: 1.5).<br></br>
+<td><code>CritMultiplier</code></td><td>Determine the multiplier applied to the pet's damage when it lands a critical hit (default: 1.5). <br></br>
 <em>*The final crit multiplier output is calculated using this formula: <br><code>(AttackModel.CritMultiplier * CombatSkillMasteryCritMultiplierModifiers</code></br></em>
 </td>
 </tr>
 <tr>
-<td><code>DamageScaling</code></td><td>Change how much the pet's damage output scales with the player combat level (by default: 0.62).<br></br>
+<td><code>DamageScaling</code></td><td>Determine how much the pet's damage scales with the player's combat level (default: 0.62).<br></br>
 </td>
 </tr>
 <tr>
-<td><code>KnockbackModifier</code></td><td>Change how much knockback an enemy receives after being hit by this pet (dog default: 1.5, cat default: 1.25).<br></br>
+<td><code>KnockbackModifier</code></td><td>Determine the amount of knockback applied to enemies after being hit by this pet (default: 1.5 for dogs, 1.25 for cats).<br></br>
 </td>
 </tr>
 <tr>
 <td><code>EnemiesEffectiveAgainst</code></td>
-<td>Configure the list of Enemies this pet is effective against.
+<td>Define the list of <code>EnemiesEffectiveAgainst</code> for this pet. 
 <br></br>
 Example:
 
@@ -949,9 +946,9 @@ Example:
   ]
 }
 ```
-<em>*EnemiesEffectiveAgainst refers to enemies that receive more damage when being hit by this pet.</em>
+<em>*"EnemiesEffectiveAgainst" refers to enemies that receive more damage against this pet.</em>
 <br><br/> 
-An element inside an EnemiesEffectiveAgainst list typically looks like this:
+An element inside an <code>EnemiesEffectiveAgainst</code> list typically looks like this:
 
 ```js
 {
@@ -963,17 +960,17 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 </td>
 </tr>
 <tr>
-<td><code>AttackFrame</code></td><td>Change what frame inside the pet's sprite sheet corresponds to the frame shown when the pet is attacking, if any.<br></br>
-<em>*Choose a frame on the pet's sprite sheet to display as its attack frame. If you don't want the pet to have an attack frame: You can write null.</em>
+<td><code>AttackFrame</code></td><td>Specify the frame from the pet's sprite sheet to be displayed during an attack.<br></br>
+<em>*If you want the pet to have no attack animation, set this to null.</em>
 </td>
 </tr>
 <tr>
-<td><code>IsViciousType</code></td><td>Change whether or not this pet is of a vicious kind. Type boolean.<br></br>
-<em>*The 'IsViciousType' var is used by the mod to decide whether or not the pet can break the shell of Rock Crabs & interrupt grub metamorphosis.</em>
+<td><code>IsViciousType</code></td><td>Determine whether the pet is considered "vicious." Type boolean.<br></br>
+<em>*This property influences the pet's ability to break Rock Crab shells and interrupt Grub metamorphosis.</em>
 </td>
 </tr>
 </table>
-
+<br></br>
 And that's pretty much everything about Content Packs for Pet's Enhanced Mod, thanks for reading!
 
 ## See also
