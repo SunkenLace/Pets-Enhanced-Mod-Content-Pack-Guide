@@ -1,5 +1,5 @@
 # Pets Enhanced Mod Content Pack Guide
-A comprehensive guide on how to install and/or create content packs for the Stardew Valley mod "Pet's Enhanced - A Pet Mechanic Overhaul"
+This comprehensive guide explains how to install and/or create content packs for the Stardew Valley mod "Pet's Enhanced - A Pet Mechanic Overhaul".
 ## Contents
 * [Installation](#installation)
 * [Getting Started](#getting-started)
@@ -16,16 +16,16 @@ A comprehensive guide on how to install and/or create content packs for the Star
 ## Installation
 1. Install the latest version of [SMAPI](https://www.nexusmods.com/stardewvalley/mods/2400).
 2. Install the latest version of [Pet's Enhanced Mod](https://www.nexusmods.com/stardewvalley/mods/24026) on [Nexus Mods](https://www.nexusmods.com/stardewvalley).
-3. Unzip any Pet's Enhanced Mod content packs into `Mods` to install them.
+3. To install a content pack, unzip it into the `Mods` folder.
 4. Run the game using SMAPI.
 
 That's it! Content packs unzipped into `Mods` will be loaded and applied automatically.
 <br><br/>
 
 ## Getting Started
-"The following guide is for mod authors only, if you're not a mod author or you don't plan to make a content pack yourself, the instructions above are everything you need to know, otherwise keep reading."
+"The following guide is for mod authors only, if you're not a mod author and don't plan to make your own content pack, the installation instructions above are sufficient."
 
-Before we start learning how to create a Content pack for Pet's Enhanced Mod, we first need to know how does a finished content pack for the mod look like:
+Before diving into content pack creation, let's explore what a finished content pack looks like:
 ```
 📁 Mods/
    📁 [PEM] YourModName/
@@ -34,7 +34,7 @@ Before we start learning how to create a Content pack for Pet's Enhanced Mod, we
       📁 assets/
          🗎 exampleTexture.png
 ```
-As you can see, it is pretty similar to how a content pack for Content Patcher looks like. Here is an example of how a simple `content.json` file for the mod looks like:
+As you can see, the structure resembles a Content Patcher content pack. Here's an example of a simple `content.json` file for this mod:
 
 ```js
 {
@@ -47,14 +47,16 @@ As you can see, it is pretty similar to how a content pack for Content Patcher l
   ]
 }
 ```
-What this does is replace the texture of the vanilla cat nº3 with `exampleTexture.png`. You can do this and much more with the help of this guide (via content packs).
-
-For example: Edit the max damage of a pet, its hat offset relative to its current frame, change what commands a pet is able to learn, etc... 
+This piece of code replaces the texture of the vanilla cat #3 with `exampleTexture.png`. You can do this and much more with the help of this guide (via content packs).
+<br><br/>
+Content packs allow you to achieve various modifications, like editing pet damage, hat placement, learnable commands, and more.
 <br><br/>
 
 ## Creating the Content Pack
 
-Let's start by creating a new folder inside the `Mods` folder, then create a new json file named `manifest.json` inside it.
+  1. Inside the Mods folder, create a new folder for your content pack.
+  2. Within this folder, create a new JSON file named manifest.json.
+     
 ```
 📁 Mods/
    📁 [PEM] YourModName/
@@ -77,9 +79,9 @@ The `manifest.json` should look like this:
 
 }
 ```
-With this, SMAPI will now recognize your content pack. Of course were not done yet, you still need to write down the logic of your content pack, otherwise it is empty and won't work.
+With this, SMAPI will now recognize your content pack.
 
-For that, we need to create the `content.json` file, which will contain all our logic for the content pack.
+Next, we'll need to create the content.json file, which defines the logic for your content pack.
 
 ```js
 {
@@ -96,12 +98,9 @@ Which should look like this for now.
 
 ## Implementing Logic
 
-When creating a content pack you might want to do one of two things: Edit content from the mod, or add content to the mod.
+When creating a content pack, you'll likely want to either edit existing content from the mod or add new content to it. The mod provides two constructors, `EditContent` and `AddContent`, to help you organize your logic into separate blocks.
 
-To help achieve both things, the mod provides two constructors called: `EditContent` and `AddContent`.
-
-Their purpose is to help organize the logic into separate blocks.
-
+#### Structure:
 ```js
 {
   "EditContent": [
@@ -124,7 +123,7 @@ Their purpose is to help organize the logic into separate blocks.
   ]
 }
 ```
-Each block is an independent Action that provides the mod with instructions that help apply the changes correctly.
+Each block represents an independent action that instructs the mod how to apply changes.
 <table>
 <tr>
 <th>Field</th>
@@ -133,22 +132,22 @@ Each block is an independent Action that provides the mod with instructions that
 <tr>
 <td><code>AddContent</code></td><td>Include modded pets into the Internal Content Library of the mod.
 <br><br/>
-<em>*By default, the mod ignores any modded pet whose texture is not present on the Library.
+<em>*By default, the mod ignores modded pets with textures not present in the Library.
 <br><br/>
-This is because the mod requires a lot of information in order to work correctly.
-<br>For example: What commands can the pet learn, or what items can it eat.<br/>
-<br>The mod also uses different sprite sheets for the cat & dog, which contains frames that aren't present on vanilla. This causes visual bugs due to missing frames.<br/></em>
+This is because the mod requires information like learnable commands and edible items for proper functionality.
+<br></br>
+Additionally, the mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames.</em>
 </td>
 </tr>
 <tr>
-<td><code>EditContent</code></td><td>Edit pets already present on the Internal Content Library of the mod.</td>
+<td><code>EditContent</code></td><td>Edits content already present in the mod's internal Content Library.</td>
 </tr>
 </table>
 <br><br/>
 
 ### EditContent
 
-The basic structure of an EditContent Action block usually looks like this:
+The basic structure of an `EditContent` action block typically looks like this:
 
 ```js
 {
@@ -168,9 +167,7 @@ The basic structure of an EditContent Action block usually looks like this:
   ]
 }
 ```
-As you can see, it is made out of 4 fields: `PatchPriority`, `TargetTexture`, `FromTexture` and `Entries`.
-
-Each of them have their own purposes:
+This block consists of four fields: `PatchPriority`, `TargetTexture`, `FromTexture`, and `Entries`.
 
 <table>
 <tr>
@@ -179,22 +176,22 @@ Each of them have their own purposes:
 <th>IsRequired</th>
 </tr>
 <tr>
-<td><code>PatchPriority</code></td><td>Set this action's priority over its "TargetTexture". <br></br><em>*If another content pack targets the same texture as this one, whichever has the highest </em><code>PatchPriority</code><em> will be applied first.</em></td><td>Yes</td>
+<td><code>PatchPriority</code></td><td>Set this action's priority over its <code>TargetTexture</code>. <br></br><em>*If another content pack targets the same texture, the one with the highest <code>PatchPriority</code> is applied first.</em></td><td>Yes</td>
 </tr>
 <tr>
-<td><code>TargetTexture</code></td><td>The texture that will be affected by our changes. 
+<td><code>TargetTexture</code></td><td>The texture to be affected by the changes. 
 <br><br/> 
-<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched equal.</em>
+<em>*The mod uses textures to identify which pet to patch. As such, all pets that share the same texture will be patched similarly.</em>
 <br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#targettexture">PropertyInfo:TargetTexture</a> for more info.
 </td><td>Yes</td>
 </tr>
 <tr>
-<td><code>FromTexture</code></td><td>The path to the new texture that'll replace the "TargetTexture".<br><br/><em>*This literally replaces the previous texture with a new one.</em>
+<td><code>FromTexture</code></td><td>The path to the new texture that replaces the <code>TargetTexture</code>(visually).<br><br/><em>*This literally replaces the previous texture with a new one.</em>
 <br><br/>See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#fromtexture">PropertyInfo:FromTexture</a> for more info.
 <td>No</td>
 </tr>
 <tr>
-<td><code>Entries</code></td><td>Contains several other methods that you can use to achieve more specific results.<br></br><em>*Such as: Add EdibleItems, replace pet Commands or modify the AttackModel for example.</em>
+<td><code>Entries</code></td><td>Contains additional methods for achieving more specific results, such as adding edible items, replacing pet commands, or modifying the attack model.</td>
 <td>No</td>
 </tr>
 </table>
