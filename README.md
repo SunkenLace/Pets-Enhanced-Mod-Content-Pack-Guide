@@ -541,6 +541,122 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 <em>*This property influences the pet's ability to break Rock Crab shells and interrupt Grub metamorphosis.</em>
 </td>
 </tr>
+</tr>
+<tr>
+<td><code>EditHoveringAttackEffect</code></td><td>Defines a custom animation to be displayed over the target when attacked by this pet.<br></br>The animation consists of a series of frames with specific properties.
+<br>Structure:</br>
+  
+```js
+{
+  "EditContent": [
+    {
+      "PatchPriority": 2,
+      "TargetTexture": [ "Animals", "cat4" ],
+      "Entries": {
+        "AttackModel": {
+          "EditHoveringAttackEffect": [
+            {
+              "Frame": 63,
+              "Duration": 2,
+              "Offset": [ -5, 4 ],
+              "PlaySound": {
+                "Name": "serpentHit",
+                "Delay": 2,
+                "Pitch": null
+              },
+              "Flip": false
+            },
+            {  
+              "Frame": 45,
+              "Duration": 5
+            },
+            {
+              "Frame": 56,
+              "Duration": 10,
+              "Flip": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+Each block within the array represents a frame in the animation. <br></br> List of properties for each frame:
+<table>
+<th>Field</th><th>Description</th><th>Required</th>
+<tr>
+<td><code>Frame</code></td><td>The specific frame from the pet's sprite sheet to be displayed.<br></br>Example:
+  
+```js
+  "Frame": 23 // The frame nº23 of the pet sprite sheet.
+```
+</td><td>Yes</td>
+</tr>
+<tr>
+<td><code>Duration</code></td><td>The duration of this frame (in ticks). <br></br>Example:
+  
+```js
+  "Duration": 2 //The frame lasts 2 ticks.
+```
+</td><td>Yes</td>
+</tr>
+<tr>
+<td><code>Flip</code></td><td>Whether to horizontally flip the frame.<br></br>Example:
+  
+```js
+  "Flip": true // Flips the frame horizontally.
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>Scale</code></td><td>The scale modifier for this frame. <br></br>Example:
+  
+```js
+  "Scale": 2.0 // Means 2x bigger. 
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>Rotation</code></td><td>The rotation value for this frame. <br></br>Example:
+  
+```js
+  "Rotation": 45 // Rotate the frame 45º degrees clockwise.
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>Alpha</code></td><td>The opacity of the frame (0.0 to 1.0). <br></br>Example:
+  
+```js
+  "Alpha": 0.5 // Means 50% transparent.
+```
+</td><td>No</td>
+<tr>
+<td><code>Offset</code></td><td>The position offset (x, y) for the frame.<br></br>Example:
+  
+```js
+  "Offset": [ xOffset, yOffset ]
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>PlaySound</code></td><td>The sound that should play this frame with specific timing and pitch. <br></br>Example:
+  
+```js
+"PlaySound": {
+    "Name": "serpentHit", // The in-game name of the cue.
+    "Delay": 2, //The delay in ticks for this cue.
+    "Pitch": null // The pitch value of this cue.
+  }
+```
+</td><td>No</td>
+
+</tr>
+</table>
+</td>
+</tr>
 </table>
 <br></br>
 This concludes the explanation of the <code>EditContent</code> section. Next, we'll delve into the <code>AddContent</code> functionality.
@@ -967,6 +1083,120 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 <tr>
 <td><code>IsViciousType</code></td><td>Determine whether the pet is considered "vicious." Type boolean.<br></br>
 <em>*This property influences the pet's ability to break Rock Crab shells and interrupt Grub metamorphosis.</em>
+</td>
+</tr>
+<tr>
+<td><code>HoveringAttackEffect</code></td><td>Defines a custom animation to be displayed over the target when attacked by this pet.<br></br>The animation consists of a series of frames with specific properties.
+<br>Structure:</br>
+  
+```js
+{
+  "AddContent": [
+  {
+    "PatchPriority": 1,
+    "TargetTexture": [ "Mods", "moddedDogTexture" ],
+    "FromTexture": [ "assets", "exampleTexture.png" ],
+    "PetType": "Dog",
+    "Entries": {
+      "HatOffsetModel": "dog4",
+      "AttackModel": {
+        "HoveringAttackEffect": [
+          {
+            "Frame": 63,
+            "Duration": 2,
+            "Offset": [ -5, 4 ],
+            "PlaySound": {
+              "Name": "serpentHit",
+              "Delay": 2,
+              "Pitch": null
+            },
+            "Rotation": 45,
+            "Alpha": 0,
+            "Scale": 1,
+            "Flip": false
+          }
+        ]
+      }
+
+    }
+
+  }
+]
+}
+```
+
+Each block within the array represents a frame in the animation. <br></br> List of properties for each frame:
+<table>
+<th>Field</th><th>Description</th><th>Required</th>
+<tr>
+<td><code>Frame</code></td><td>The specific frame from the pet's sprite sheet to be displayed.<br></br>Example:
+  
+```js
+  "Frame": 23 // The frame nº23 of the pet sprite sheet.
+```
+</td><td>Yes</td>
+</tr>
+<tr>
+<td><code>Duration</code></td><td>The duration of this frame (in ticks). <br></br>Example:
+  
+```js
+  "Duration": 2 //The frame lasts 2 ticks.
+```
+</td><td>Yes</td>
+</tr>
+<tr>
+<td><code>Flip</code></td><td>Whether to horizontally flip the frame.<br></br>Example:
+  
+```js
+  "Flip": true // Flips the frame horizontally.
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>Scale</code></td><td>The scale modifier for this frame. <br></br>Example:
+  
+```js
+  "Scale": 2.0 // Means 2x bigger. 
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>Rotation</code></td><td>The rotation value for this frame. <br></br>Example:
+  
+```js
+  "Rotation": 45 // Rotate the frame 45º degrees clockwise.
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>Alpha</code></td><td>The opacity of the frame (0.0 to 1.0). <br></br>Example:
+  
+```js
+  "Alpha": 0.5 // Means 50% transparent.
+```
+</td><td>No</td>
+<tr>
+<td><code>Offset</code></td><td>The position offset (x, y) for the frame.<br></br>Example:
+  
+```js
+  "Offset": [ xOffset, yOffset ]
+```
+</td><td>No</td>
+</tr>
+<tr>
+<td><code>PlaySound</code></td><td>The sound that should play this frame with specific timing and pitch. <br></br>Example:
+  
+```js
+"PlaySound": {
+    "Name": "serpentHit", // The in-game name of the cue.
+    "Delay": 2, //The delay in ticks for this cue.
+    "Pitch": null // The pitch value of this cue.
+  }
+```
+</td><td>No</td>
+
+</tr>
+</table>
 </td>
 </tr>
 </table>
