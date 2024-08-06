@@ -78,7 +78,21 @@ A target texture is essentially an in-game file path to a specific texture. This
   ```
 
 ## FromTexture
-FromTexture is a property used by the mod to pinpoint the exact location of the Texture asset that will replace the old pet's texture.<br></br> It's main purpose apart from customization is to manually correct invalid textures into valid ones. <br></br><em>The mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames.</em><br></br>To prevent this, the mod replaces the old vanilla sprite model with a new one that works well. As such, by providing a new edited texture you are correcting the old one by providing the missing frames, thus fixing visual bugs.
+The FromTexture property specifies the path to the texture asset that will replace the original pet texture. This feature is primarily used for customization but also serves to correct invalid textures.<br></br> <br></br>The mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames. By providing a new, edited texture with the necessary frames, you can effectively replace the original texture and resolve these visual issues.
+
+### Structure of a FromTexture Property
+The FromTexture property is structured as a string array for easy readability across different devices. <br></br>The path always originates in the "StardewValley\Mods\MyContentPack" folder and can only traverse subfolders.
+<br></br>Example:
+
+
+```js
+
+"FromTexture": [ "assets", "exampleTexture.png" ] //This translates to: StardewValley\Mods\MyContentPack\assets\exampleTexture.png
+
+```
+
+### Sprite Requirements
+
 
 ## HatOffset & HatOffsetModel
 
