@@ -81,8 +81,28 @@ A target texture is essentially an in-game file path to a specific texture. This
 ## HatOffset & HatOffsetModel
 
 ## Commands
+Commands refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick in its LearnableTrickList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
+<br></br>
+The list of tricks are:
+* <b>Wait:</b>
+  Makes pet sit on the spot and wait until told otherwise.
+* <b>Follow:</b>
+  Makes pet follow the player at all places.
+* <b>Hunt:</b>
+  Pet will attack any monster near the player.
+* <b>Search:</b>
+  Pet will search any nearby bushes for loot.
 
 ## EdibleItems
+Edible items refer to any item that can be gifted to a pet. <br></br>Edible Items have the properties of giving a friendship bonus via the "FriendshipPointsGained" field. You can edit its values to either increase or decrease your pet's friendship with the player after being gifted that particular item.
+<br></br>Structure of an EdibleItem:
+
+```js
+{
+"QualifiedItemID": "(O)139", //An Unique Identifier for this item formed by the (Item Type) + its Internal ID. More info on the Stardew Wiki.
+"FriendshipPointsGained": 20 //This can be either negative or positive. The usual amount of FP gained by petting a pet is 12. 
+}
+```
 
 ## EnemiesEffectiveAgainst
 
