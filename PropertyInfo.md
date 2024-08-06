@@ -81,7 +81,7 @@ A target texture is essentially an in-game file path to a specific texture. This
 ## HatOffset & HatOffsetModel
 
 ## Commands
-Commands refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick in its LearnableTrickList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
+  Commands refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick in its CommandList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
 <br></br>
 The list of tricks are:
 * <b>Wait:</b>
