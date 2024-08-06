@@ -78,7 +78,7 @@ A target texture is essentially an in-game file path to a specific texture. This
   ```
 
 ## FromTexture
-FromTexture is a property used by the mod to pinpoint the exact location of the Texture asset that will replace the old pet's texture.<br></br> It's main purpose apart from customization is to manually correct invalid textures into valid ones. <br></br>The mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames. <br></br>To prevent this, the mod replaces the old vanilla sprite model with a new one that works well. As such, by providing a new edited texture you are correcting the old one by providing the missing frames, thus fixing visual bugs.
+FromTexture is a property used by the mod to pinpoint the exact location of the Texture asset that will replace the old pet's texture.<br></br> It's main purpose apart from customization is to manually correct invalid textures into valid ones. <br></br><em>The mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames.</em><br></br>To prevent this, the mod replaces the old vanilla sprite model with a new one that works well. As such, by providing a new edited texture you are correcting the old one by providing the missing frames, thus fixing visual bugs.
 
 ## HatOffset & HatOffsetModel
 
