@@ -253,7 +253,7 @@ Here's the list of methods:
 <em>*"HatOffsetModel" refers to pre-defined HatOffset dictionaries that save you from writing them yourself.<br><br/>Use `custom` to write the HatOffset dictionary yourself.</em><br><br/> 
 Valid inputs: `dog`, `dog1`, `dog2`, `dog3`, `dog4`, `dog5`, `cat`, `custom`.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset--hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 </tr>
 <tr>
 <td><code>AddHatOffset</code>, <code>EditHatOffset</code> & <code>ReplaceHatOffset</code></td><td>Add, edit or replace the entire HatOffset dictionary for this pet.
@@ -285,7 +285,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 ```
 <em><b>Note:</b> The "y" axis is inverted. "-10" is read as "Ten pixels up" in-game.</em>
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset--hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 
 </td>
 </tr>
@@ -786,7 +786,7 @@ List of methods:
 <em>*"HatOffsetModel" refers to pre-defined HatOffset dictionaries that save you from writing them yourself.<br><br/>Use `custom` to write the HatOffset dictionary yourself.</em><br><br/> 
 Valid inputs: `dog`, `dog1`, `dog2`, `dog3`, `dog4`, `dog5`, `cat`, `custom`.
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.</td><td>Yes</td>
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset--hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.</td><td>Yes</td>
 </tr>
 <tr>
 <td><code>HatOffset</code></td><td>Define the <code>HatOffset</code> dictionary for this pet.
@@ -847,7 +847,7 @@ See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/
 ```
 <em><b>Note:</b> The "y" axis is inverted. "-10" is read as "Ten pixels up" in-game.</em>
 <br><br/> 
-See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset-&-hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
+See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#hatoffset--hatoffsetmodel">PropertyInfo:HatOffset & HatOffsetModel</a> for more info.
 
 </td><td>No</td>
 </tr>
