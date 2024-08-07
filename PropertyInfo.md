@@ -78,7 +78,7 @@ A target texture is essentially an in-game file path to a specific texture. This
   ```
 
 ## FromTexture
-The FromTexture property specifies the path to the texture asset that will replace the original pet texture. This feature is primarily used for customization but also serves to correct invalid textures.<br></br>The mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames. By providing a new, edited texture with the necessary frames, you can effectively replace the original texture and resolve these visual issues.
+The FromTexture property specifies the path to the texture asset that will replace the original pet texture. This feature is primarily used for customization but also serves to correct invalid textures.<br></br>The mod uses different sprite sheets for cats and dogs, containing frames absent in vanilla, which can cause visual bugs due to missing frames. <br></br>By providing a new, edited texture with the necessary frames, you can effectively replace the original texture and resolve these issues.
 
 ### Structure of a FromTexture Property
 The FromTexture property is structured as a string array for easy readability across different devices. <br></br>The path always originates at you content pack folder and can only traverse subfolders.
@@ -95,12 +95,12 @@ The FromTexture property is structured as a string array for easy readability ac
 In order to replace a texture we first need to make sure our edited texture fulfills all the requirements for a succesfull patch.<br></br>
 Requirements:
 
-* The sprite sheet must ALWAYS be 4 frames wide.
+* The sprite sheet must always have a width of 4 frames.
 
 * Make sure to respect the positioning of the frames.
 
-* The new texture must contain all required frames for its type.
-  <br><em>After that's done, you can add as many frames as you want (vertically).</em></br>
+* The new texture must include all mandatory frames for the specific pet type (cat or dog).
+  <br><em>You can add additional frames vertically after fulfilling this requirement.</em></br>
   
   <b>For dog types:</b>
   <br></br>![dog1](https://github.com/user-attachments/assets/60ff0d9d-3136-4a2e-83b6-725e8aa69620)
@@ -108,9 +108,9 @@ Requirements:
 
   <b>For cat types:</b>
   <br></br>![cat2](https://github.com/user-attachments/assets/144d09b5-756d-4d17-9f8b-60e98cbe35a6)
-  <br></br>You can add a hovering attack animation by adding new frames to the sprite, but make sure to register it using the HoveringAttackEffect field.
+  <br></br>You can add new frames to the sprite sheet to create a hovering attack animation. However, remember to register this animation using the HoveringAttackEffect field.
   <br></br>
-And that's pretty much it!
+<b>And that's pretty much it!</b>
 
 ## HatOffset & HatOffsetModel
 HatOffset is a dictionary that provides instructions for the mod to display the pet's hat correctly on its texture (frame specific).<br></br>
@@ -125,34 +125,31 @@ As such, a HatOffset dictionary fulfills that role by providing those instructio
     "24": [ 3.5, -10, 1 ]
   }
 ```
-Each key in the HatOffset dictionary follows a set of rules that help facilitate the process of iterating through each frame individually:
+Each key within the HatOffset dictionary follows this format:
 
 ```js
 "frame": [ xOffset, yOffset, direction]
 ```
-* <b>"frame":</b> The specific frames these instructions are meant for.
+* <b>"frame":</b> A comma-separated list of frames (e.g., "1, 2", "24"). This indicates the frames to which the offset values apply.
   <br>Example: <code>"12, 21"</code> means that these instructions are meant for when the pet's current frame is either "12" or "21".</br>
   
-* <b>xOffset:</b> Represents the horizontal offset relative to the pet's sprite center.
+* <b>xOffset:</b> The horizontal offset relative to the pet's sprite center (in pixels). 
   <br>Example: <code>-12.5</code> means "Twelve and a half" pixels to the left relative to the center of the pet's sprite.</br>
 
-* <b>yOffset:</b> Represents the vertical offset relative to the pet's sprite center.
+* <b>yOffset:</b> The vertical offset relative to the pet's sprite center (in pixels).
   <br>Example: <code>-12.5</code> means "Twelve and a half" pixels higher relative to the center of the pet's sprite.</br>
   
   <em>*This is because the vertical axis is inverted, this means that negative numbers translate to higher altitudes in-game.</em>
 
-* <b>direction:</b> The direction the hat should be facing at this frame.
-  <br>Example: <code>1</code> means that the hat should be facing East at this current frame.</br>
-  
-  <em>*Directions (in-game) are writen as numbers, this means that `0` is North, `1` is East, `2` is South and `3` is West.</em>
+* <b>direction:</b> The direction the hat should face (0: North, 1: East, 2: South, 3: West).
 
 ### HatOffsetModel
-A HatOffsetModel offers a pre-made solution for people that don't want to write a HatOffset dictionary themselves.
+A HatOffsetModel offers a pre-made solution for people that don't want to write a HatOffset dictionary themselves. These models are based on the hat offset configurations of vanilla dog and cat breeds.
 
 ```js
 "HatOffsetModel": "dog4"
 ```
-There are quite a few HatOffsetModels available to use, as they are based on vanilla dog/cat breeds HatOffsets:
+<b>Available HatOffsetModels:</b>
 
  * <code>cat</code>
  
@@ -391,38 +388,38 @@ There are quite a few HatOffsetModels available to use, as they are based on van
      "35,39,42,43,54,55":[0,0,2]
    }
    ```
-* <code>custom</code><br>This is an empty model, use it if you want to write the HatOffset dictionary yourself.</br>
+* <code>custom</code><br> Use this option to create a custom HatOffset dictionary from scratch.</br>
 
-<em>*Note that if you want to use a HatOffsetModel but need to alter some of its keys, you can write them in your HatOffset dictionary. The overlapping offsets will be added together and the direction will be replaced with a new one from the dictionary.</em> <br></br>For example: If frame "12" on the model is `[ -10, 10, 1 ]`, and frame "12" on the dictionary is `[ 4, 0, 0 ]`, the result will be `[ -6, 10, 0 ]`.
+<em>*Note that you can modify specific frame offsets within a HatOffsetModel by including those frames in your custom HatOffset dictionary. The existing values in the model will be combined with the new values you provide.</em> <br></br>For example: If frame "12" on the model is `[ -10, 10, 1 ]`, and frame "12" on the dictionary is `[ 4, 0, 0 ]`, the result will be `[ -6, 10, 0 ]`.
 
 
 ## Commands
-Commands refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick on its CommandList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
+<b>Commands</b> refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick on its CommandList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
 <br></br>
-The list of tricks are:
+<b>Available Commands:</b>
 * <b>Wait:</b>
-  Makes pet sit on the spot and wait until told otherwise.
+  Makes pet sit on the spot and wait until given further commands.
 * <b>Follow:</b>
-  Makes pet follow the player at all places.
+  Makes the pet follow the player's character.
 * <b>Hunt:</b>
   Pet will attack any monster near the player.
 * <b>Search:</b>
   Pet will search any nearby bushes for loot.
 
 ## EdibleItems
-Edible items refer to any item that can be gifted to a pet. <br></br>Edible Items have the properties of giving a friendship bonus via the "FriendshipPointsGained" field. You can edit its values to either increase or decrease your pet's friendship with the player after being gifted that particular item.
-<br></br>Structure of an EdibleItem:
+<b>EdibleItems</b> represent items that can be gifted to a pet. Each item can provide a friendship points bonus, which can be adjusted using the <code>FriendshipPointsGained</code> property.
+<br></br><b>EdibleItem Structure:</b>
 
 ```js
 {
-  "QualifiedItemID": "(O)139", //An Unique Identifier for this item formed by the (Item Type) + its Internal ID. More info on the Stardew Wiki.
-  "FriendshipPointsGained": 20 //This can be either negative or positive. The usual amount of FP gained by petting a pet is 12. 
+  "QualifiedItemID": "(O)139", //Unique item identifier (e.g., "(O)139" for Salmon)
+  "FriendshipPointsGained": 20 //Amount of friendship points gained when gifting the item.
 }
 ```
 
 ## EnemiesEffectiveAgainst
-Refers to enemies that receives more damage from this pet via a DamageMultiplier variable.
-<br></br>Structure:
+<b>EnemiesEffectiveAgainst</b> specifies enemies that take increased damage from a this pet via a DamageMultiplier variable.
+<br></br><b>Structure:</b>
 
 ```js
 {
@@ -430,4 +427,4 @@ Refers to enemies that receives more damage from this pet via a DamageMultiplier
   "DamageMultiplier": 3 //Effectiveness damage multiplier.
 }
 ```
-The final damage output is calculated by multiplying the finished damage output with the DamageMultiplier of that monster.
+The final damage dealt to the enemy is calculated by multiplying the base damage by the <code>DamageMultiplier</code>.
