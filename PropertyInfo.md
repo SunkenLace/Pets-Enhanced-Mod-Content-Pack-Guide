@@ -95,9 +95,291 @@ The FromTexture property is structured as a string array for easy readability ac
 
 
 ## HatOffset & HatOffsetModel
+HatOffset is a dictionary that provides instructions for the mod to display the pet's hat correctly on its texture (frame specific).<br></br>
+This is because the mod needs to know the hat's direction and position at certain frames.
+For example: At frame 24, the hat should be 3.5px to the right, 10px higher, and facing east.<br></br>
+As such, a HatOffset dictionary fulfills that role by providing those instructions in an organized manner:
+
+```js
+"HatOffset": { 
+    "1, 2": [ 4, 4, 2 ],
+    "35, 6, 23": [ 3, 4, 0 ],
+    "24": [ 3.5, -10, 1 ]
+  }
+```
+Each key in the HatOffset dictionary follows a set of rules that help facilitate the process of iterating through each frame individually:
+
+```js
+"frame": [ xOffset, yOffset, direction]
+```
+* <b>"frame":</b> The specific frames these instructions are meant for.
+  <br>Example: <code>"12, 21"</code> means that these instructions are meant for when the pet's current frame is either "12" or "21".</br>
+  
+* <b>xOffset:</b> Represents the horizontal offset relative to the pet's sprite center.
+  <br>Example: <code>-12.5</code> means "Twelve and a half" pixels to the left relative to the center of the pet's sprite.</br>
+
+* <b>yOffset:</b> Represents the vertical offset relative to the pet's sprite center.
+  <br>Example: <code>-12.5</code> means "Twelve and a half" pixels higher relative to the center of the pet's sprite.</br>
+  
+  <em>*This is because the vertical axis is inverted, this means that negative numbers translate to higher altitudes in-game.</em>
+
+* <b>direction:</b> The direction the hat should be facing at this frame.
+  <br>Example: <code>1</code> means that the hat should be facing East at this current frame.</br>
+  
+  <em>*Directions (in-game) are writen as numbers, this means that `0` is North, `1` is East, `2` is South and `3` is West.</em>
+
+### HatOffsetModel
+A HatOffsetModel offers a pre-made solution for people that don't want to write a HatOffset dictionary themselves.
+
+```js
+"HatOffsetModel": "dog4"
+```
+There are quite a few HatOffsetModels available to use, as they are based on vanilla dog/cat breeds HatOffsets:
+
+ * <code>cat</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-1,2],
+     "24":[6.5,0,1],
+     "25":[6.5,3,1],
+     "26":[6.5,4,1],
+     "27":[7.5,4,1],
+     "32":[5.5,-3,1],
+     "33":[4.5,-4,1],
+     "47":[4.5,-4,1],
+     "68":[0,-6,0],
+     "69":[0,-5,0],
+     "0,2":[0,0,2],
+     "1,3":[0,1,2],
+     "4,6":[6.5,-2,1],
+     "5,7":[6.5,-1,1],
+     "8,10":[0,-6,0],
+     "9,11":[0,-5,0],
+     "12,14":[-6.5,-2,3],
+     "13,15":[-6.5,-1,3],
+     "17,21,23":[0,-3,2],
+     "18,19,20,22":[0,-4,2],
+     "28,29":[-0.5,4,3],
+     "30, 31":[5.5,0,1],
+     "34,36,37,38,40,41,42,43,44,45,46,48,49,50,51,52,53,54,55,56,57,58":[2.5,-4,1],
+     "60,62":[0,-7,2],
+     "61,63":[0,-6,2],
+     "64,66":[4.5,-8,1],
+     "65,67":[4.5,-7,1],
+     "59,35,39":[0,0,2]
+   }
+   ```
+
+* <code>dog</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-6,2],
+     "17":[0,-8,2],
+     "20":[5.5,-7,1],
+     "21":[4.5,-8,1],
+     "22":[3.5,-9,1],
+     "26":[3.5,-11,1],
+     "32":[5.5,-8,1],
+     "33":[5.5,-7,1],
+     "34":[5.5,-5,1],
+     "52":[0,-15,0],
+     "53":[0,-14,0],
+     "0,2":[0,-4,2],
+     "1,3":[0,-3,2],
+     "4,6":[5.5,-6,1],
+     "5,7":[5.5,-5,1],
+     "8,10":[0,-12,0],
+     "9,11":[0,-11,0],
+     "12,14":[-6.5,-6,3],
+     "13,15":[-6.5,-5,3],
+     "18,19,27,36,37,38":[0,-9,2],
+     "23,24,25,30,31,40,41":[3.5,-10,1],
+     "28,29":[5,0,2],
+     "44,46":[0,-9,2],
+     "45,47":[0,-8,2],
+     "48,50":[5.5,-9,1],
+     "49,51":[5.5,-8,1],
+     "35,39,42,43,54,55":[0,0,2]
+   }
+   ```
+
+* <code>dog1</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-6,2],
+     "17":[0,-9,2],
+     "20":[5.5,-7,1],
+     "21":[4.5,-7,1],
+     "22":[3.5,-11,1],
+     "26":[3.5,-12,1],
+     "32":[6.5,-9,1],
+     "33":[6.5,-8,1],
+     "34":[6.5,-6,1],
+     "52":[0,-15,0],
+     "53":[0,-14,0],
+     "0,2":[0,-4,2],
+     "1,3":[0,-3,2],
+     "4,6":[5.5,-6,1],
+     "5,7":[5.5,-5,1],
+     "8,10":[0,-12,0],
+     "9,11":[0,-11,0],
+     "12,14":[-6.5,-6,3],
+     "13,15":[-6.5,-5,3],
+     "18,19,27,36,37,38":[0,-10,2],
+     "23,24,25,30,31,40,41":[3.5,-11,1],
+     "28,29":[5,-1,2],
+     "44,46":[0,-9,2],
+     "45,47":[0,-8,2],
+     "48,50":[5.5,-9,1],
+     "49,51":[5.5,-8,1],
+     "35,39,42,43,54,55":[0,0,2]
+   }
+   ```
+
+* <code>dog2</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-6,2],
+     "17":[0,-8,2],
+     "20":[5.5,-5,1],
+     "21":[4.5,-7,1],
+     "22":[3.5,-8,1],
+     "26":[3.5,-9,1],
+     "32":[5.5,-7,1],
+     "33":[5.5,-6,1],
+     "34":[5.5,-4,1],
+     "52":[0,-14,0],
+     "53":[0,-13,0],
+     "0,2":[0,-3,2],
+     "1,3":[0,-2,2],
+     "4,6":[5.5,-4,1],
+     "5,7":[5.5,-3,1],
+     "8,10":[0,-11,0],
+     "9,11":[0,-10,0],
+     "12,14":[-6.5,-4,3],
+     "13,15":[-6.5,-3,3],
+     "18,19,27,36,37,38":[0,-9,2],
+     "23,24,25,30,31,40,41":[3.5,-8,1],
+     "28,29":[5,0,2],
+     "44,46":[0,-8,2],
+     "45,47":[0,-7,2],
+     "48,50":[5.5,-7,1],
+     "49,51":[5.5,-6,1],
+     "35,39,42,43,54,55":[0,0,2]
+   }
+   ```
+
+* <code>dog3</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-6,2],
+     "17":[0,-8,2],
+     "20":[5.5,-7,1],
+     "21":[4.5,-8,1],
+     "22":[3.5,-9,1],
+     "26":[3.5,-11,1],
+     "32":[5.5,-8,1],
+     "33":[5.5,-7,1],
+     "34":[5.5,-5,1],
+     "52":[0,-15,0],
+     "53":[0,-14,0],
+     "0,2":[0,-4,2],
+     "1,3":[0,-3,2],
+     "4,6":[5.5,-6,1],
+     "5,7":[5.5,-5,1],
+     "8,10":[0,-12,0],
+     "9,11":[0,-11,0],
+     "12,14":[-6.5,-6,3],
+     "13,15":[-6.5,-5,3],
+     "18,19,27,36,37,38":[0,-9,2],
+     "23,24,25,30,31,40,41":[3.5,-10,1],
+     "28,29":[5,0,2],
+     "44,46":[0,-9,2],
+     "45,47":[0,-8,2],
+     "48,50":[5.5,-9,1],
+     "49,51":[5.5,-8,1],
+     "35,39,42,43,54,55":[0,0,2]
+   }
+   ```
+
+* <code>dog4</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-6,2],
+     "17":[0,-8,2],
+     "20":[5.5,-7,1],
+     "21":[4.5,-8,1],
+     "22":[3.5,-9,1],
+     "26":[3.5,-11,1],
+     "32":[5.5,-8,1],
+     "33":[5.5,-7,1],
+     "34":[5.5,-5,1],
+     "52":[0,-15,0],
+     "53":[0,-14,0],
+     "0,2":[0,-4,2],
+     "1,3":[0,-3,2],
+     "4,6":[5.5,-6,1],
+     "5,7":[5.5,-5,1],
+     "8,10":[0,-12,0],
+     "9,11":[0,-11,0],
+     "12,14":[-6.5,-6,3],
+     "13,15":[-6.5,-5,3],
+     "18,19,27,36,37,38":[0,-9,2],
+     "23,24,25,30,31,40,41":[3.5,-10,1],
+     "28,29":[5,0,2],"44,46":[0,-9,2],
+     "45,47":[0,-8,2],
+     "48,50":[5.5,-9,1],
+     "49,51":[5.5,-8,1],
+     "35,39,42,43,54,55":[0,0,2]
+   }
+   ```
+
+* <code>dog5</code>
+ 
+   ```js
+   "HatOffset":{
+     "16":[0,-6,2],
+     "17":[0,-8,2],
+     "20":[5.5,-7,1],
+     "21":[4.5,-8,1],
+     "22":[3.5,-9,1],
+     "26":[3.5,-11,1],
+     "32":[5.5,-8,1],
+     "33":[5.5,-7,1],
+     "34":[5.5,-5,1],
+     "52":[0,-15,0],
+     "53":[0,-14,0],
+     "0,2":[0,-4,2],
+     "1,3":[0,-3,2],
+     "4,6":[5.5,-6,1],
+     "5,7":[5.5,-5,1],
+     "8,10":[0,-12,0],
+     "9,11":[0,-11,0],
+     "12,14":[-6.5,-6,3],
+     "13,15":[-6.5,-5,3],
+     "18,19,27,36,37,38":[0,-9,2],
+     "23,24,25,30,31,40,41":[3.5,-10,1],
+     "28,29":[5,0,2],
+     "44,46":[0,-9,2],
+     "45,47":[0,-8,2],
+     "48,50":[5.5,-9,1],
+     "49,51":[5.5,-8,1],
+     "35,39,42,43,54,55":[0,0,2]
+   }
+   ```
+* <code>custom</code><br>This is an empty model, use it if you want to write the HatOffset dictionary yourself.</br>
+
+<em>*Note that if you want to use a HatOffsetModel but need to alter some of its keys, you can write them in your HatOffset dictionary. The overlapping offsets will be added together and the direction will be replaced with a new one from the dictionary.</em> <br></br>For example: If frame "12" on the model is `[ -10, 10, 1 ]`, and frame "12" on the dictionary is `[ 4, 0, 0 ]`, the result will be `[ -6, 10, 0 ]`.
+
 
 ## Commands
-  Commands refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick on its CommandList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
+Commands refer to tricks a pet can learn and use. In order for the pet to learn those tricks, it needs to have the name of the trick on its CommandList.<br></br> As such, by adding the name of the trick on the Commands array you are allowing the pet to learn that trick.
 <br></br>
 The list of tricks are:
 * <b>Wait:</b>
@@ -115,10 +397,19 @@ Edible items refer to any item that can be gifted to a pet. <br></br>Edible Item
 
 ```js
 {
-"QualifiedItemID": "(O)139", //An Unique Identifier for this item formed by the (Item Type) + its Internal ID. More info on the Stardew Wiki.
-"FriendshipPointsGained": 20 //This can be either negative or positive. The usual amount of FP gained by petting a pet is 12. 
+  "QualifiedItemID": "(O)139", //An Unique Identifier for this item formed by the (Item Type) + its Internal ID. More info on the Stardew Wiki.
+  "FriendshipPointsGained": 20 //This can be either negative or positive. The usual amount of FP gained by petting a pet is 12. 
 }
 ```
 
 ## EnemiesEffectiveAgainst
+Refers to enemies that receives more damage from this pet via a DamageMultiplier variable.
+<br></br>Structure:
 
+```js
+{
+  "Name": "Skeleton", //The name of the monster.
+  "DamageMultiplier": 3 //Effectiveness damage multiplier.
+}
+```
+The final damage output is calculated by multiplying the finished damage output with the DamageMultiplier of that monster.
