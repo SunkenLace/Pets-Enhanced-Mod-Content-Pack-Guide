@@ -92,7 +92,7 @@ The FromTexture property is structured as a string array for easy readability ac
 ```
 
 ### Sprite Requirements
-In order to replace a texture we first need to make sure our edited texture fulfills all the requirements for a succesfull patch.<br></br>
+In order to replace a texture we first need to make sure our edited texture meets all the requirements for a succesfull patch.<br></br>
 Requirements:
 
 * The sprite sheet must always have a width of 4 frames.
