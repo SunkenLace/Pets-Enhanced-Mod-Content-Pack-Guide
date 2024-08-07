@@ -92,7 +92,25 @@ The FromTexture property is structured as a string array for easy readability ac
 ```
 
 ### Sprite Requirements
+In order to replace a texture we first need to make sure our edited texture fulfills all the requirements for a succesfull patch.<br></br>
+Requirements:
 
+* The sprite sheet must ALWAYS be 4 frames wide.
+
+* Make sure to respect the positioning of the frames.
+
+* The new texture must contain all required frames for its type.
+  <br><em>After that's done, you can add as many frames as you want (vertically).</em></br>
+  
+  <b>For dog types:</b>
+  <br></br>![dog1](https://github.com/user-attachments/assets/60ff0d9d-3136-4a2e-83b6-725e8aa69620)
+  <br></br>The bite animation can be customized by editing or adding more frames, and later be configured using the HoveringAttackEffect field.
+
+  <b>For cat types:</b>
+  <br></br>![cat2](https://github.com/user-attachments/assets/144d09b5-756d-4d17-9f8b-60e98cbe35a6)
+  <br></br>You can add a hovering attack animation by adding new frames to the sprite, but make sure to register it using the HoveringAttackEffect field.
+  <br></br>
+And that's pretty much it!
 
 ## HatOffset & HatOffsetModel
 HatOffset is a dictionary that provides instructions for the mod to display the pet's hat correctly on its texture (frame specific).<br></br>
