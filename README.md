@@ -419,11 +419,11 @@ The `AttackModel` property provides methods for modifying various combat-related
           "AddEnemiesEffectiveAgainst": [
             {
               "Name": "Skeleton",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 2
             },
             {
               "Name": "Shadow Guy",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 1.8
             }
           ]
         }
@@ -484,11 +484,11 @@ Example:
           "AddEnemiesEffectiveAgainst": [
             {
               "Name": "Skeleton",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 2
             },
             {
               "Name": "Shadow Guy",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 1.8
             }
           ]   //Its "replace" variant also follows the same structure!
         }
@@ -977,11 +977,11 @@ The `AttackModel` property provides methods for modifying various combat-related
           "EnemiesEffectiveAgainst": [
             {
               "Name": "Skeleton",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 2
             },
             {
               "Name": "Shadow Guy",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 1.8
             }
           ]
         }
@@ -1047,11 +1047,11 @@ Example:
           "EnemiesEffectiveAgainst": [
             {
               "Name": "Skeleton",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 2
             },
             {
               "Name": "Shadow Guy",
-              "DamageMultiplier": 3
+              "DamageMultiplier": 1.8
             }
           ]
         }
@@ -1069,7 +1069,7 @@ An element inside an <code>EnemiesEffectiveAgainst</code> list typically looks l
 ```js
 {
   "Name": "Skeleton", //The name of the monster.
-  "DamageMultiplier": 3 //Effectiveness damage multiplier.
+  "DamageMultiplier": 1.8 //Effectiveness damage multiplier.
 }
 ```
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
