@@ -504,7 +504,7 @@ An element inside an <code>EnemiesEffectiveAgainst</code> list typically looks l
 ```js
 {
   "Name": "Skeleton", //The name of the monster.
-  "DamageMultiplier": 3 //Effectiveness damage multiplier.
+  "DamageMultiplier": 2 //Effectiveness damage multiplier.
 }
 ```
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
@@ -1069,7 +1069,7 @@ An element inside an <code>EnemiesEffectiveAgainst</code> list typically looks l
 ```js
 {
   "Name": "Skeleton", //The name of the monster.
-  "DamageMultiplier": 1.8 //Effectiveness damage multiplier.
+  "DamageMultiplier": 2 //Effectiveness damage multiplier.
 }
 ```
 See <a href="https://github.com/SunkenLace/Pets-Enhanced-Mod-Content-Pack-Guide/blob/main/PropertyInfo.md#enemieseffectiveagainst">PropertyInfo:EnemiesEffectiveAgainst</a> for more info.
