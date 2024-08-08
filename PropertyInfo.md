@@ -424,7 +424,7 @@ A HatOffsetModel offers a pre-made solution for people that don't want to write 
 ```js
 {
   "Name": "Skeleton", //The name of the monster.
-  "DamageMultiplier": 3 //Effectiveness damage multiplier.
+  "DamageMultiplier": 2 //Effectiveness damage multiplier.
 }
 ```
 The final damage dealt to the enemy is calculated by multiplying the base damage by the <code>DamageMultiplier</code>.
