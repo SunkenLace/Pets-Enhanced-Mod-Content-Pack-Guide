@@ -1,5 +1,5 @@
 # Pets Enhanced Mod Content Pack Guide
-This comprehensive guide explains how to install and/or create content packs for the Stardew Valley mod "Pet's Enhanced - A Pet Mechanic Overhaul".
+This comprehensive guide explains how to install and/or create content packs for the Stardew Valley mod "Pets Enhanced - A Pet Mechanic Overhaul".
 ## Contents
 * [Installation](#installation)
 * [Getting Started](#getting-started)
@@ -15,7 +15,7 @@ This comprehensive guide explains how to install and/or create content packs for
   
 ## Installation
 1. Install the latest version of [SMAPI](https://www.nexusmods.com/stardewvalley/mods/2400).
-2. Install the latest version of [Pet's Enhanced Mod](https://www.nexusmods.com/stardewvalley/mods/24026) on [Nexus Mods](https://www.nexusmods.com/stardewvalley).
+2. Install the latest version of [Pets Enhanced Mod](https://www.nexusmods.com/stardewvalley/mods/24026) on [Nexus Mods](https://www.nexusmods.com/stardewvalley).
 3. To install a content pack, unzip it into the `Mods` folder.
 4. Run the game using SMAPI.
 
@@ -1201,8 +1201,8 @@ Each block within the array represents a frame in the animation. <br></br> List 
 </tr>
 </table>
 <br></br>
-And that's pretty much everything about Content Packs for Pet's Enhanced Mod, thanks for reading!
+And that's pretty much everything about Content Packs for Pets Enhanced Mod, thanks for reading!
 
 ## See also
-* Pet's Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
+* Pets Enhanced Mod Content packs in [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/categories/8/)
 * My [BuyMeACoffee](https://buymeacoffee.com/sunkenlace) page, if you wanna support me.
